@@ -50,19 +50,36 @@
   /* ---- Hero title: split into words for a staggered rise ---- */
   var heroTitle = document.querySelector(".hero-title");
   if (heroTitle && !reduceMotion) {
-    var words = heroTitle.textContent.trim().split(/\s+/);
-    heroTitle.setAttribute("aria-label", heroTitle.textContent.trim());
+    /* Keep any fixed line breaks (.hero-line) and animate word by word inside them */
+    var lineEls = heroTitle.querySelectorAll(".hero-line");
+    var lines = lineEls.length
+      ? Array.prototype.map.call(lineEls, function (el) { return el.textContent.trim(); })
+      : [heroTitle.textContent.trim()];
+    heroTitle.setAttribute("aria-label", lines.join(" "));
     heroTitle.textContent = "";
-    words.forEach(function (word, i) {
-      var outer = document.createElement("span");
-      var inner = document.createElement("span");
-      outer.className = "word";
-      outer.setAttribute("aria-hidden", "true");
-      inner.textContent = word;
-      inner.style.setProperty("--d", (0.2 + i * 0.045).toFixed(3) + "s");
-      outer.appendChild(inner);
-      heroTitle.appendChild(outer);
-      if (i < words.length - 1) heroTitle.appendChild(document.createTextNode(" "));
+    var wordIndex = 0;
+    lines.forEach(function (line, li) {
+      var lineWrap = heroTitle;
+      if (lineEls.length) {
+        lineWrap = document.createElement("span");
+        lineWrap.className = "hero-line";
+        lineWrap.setAttribute("aria-hidden", "true");
+        heroTitle.appendChild(lineWrap);
+      }
+      var words = line.split(/\s+/);
+      words.forEach(function (word, i) {
+        var outer = document.createElement("span");
+        var inner = document.createElement("span");
+        outer.className = "word";
+        outer.setAttribute("aria-hidden", "true");
+        inner.textContent = word;
+        inner.style.setProperty("--d", (0.2 + wordIndex * 0.045).toFixed(3) + "s");
+        wordIndex++;
+        outer.appendChild(inner);
+        lineWrap.appendChild(outer);
+        if (i < words.length - 1) lineWrap.appendChild(document.createTextNode(" "));
+      });
+      if (lineEls.length && li < lines.length - 1) heroTitle.appendChild(document.createTextNode(" "));
     });
   }
 
