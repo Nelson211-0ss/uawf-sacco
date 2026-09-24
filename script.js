@@ -56,6 +56,7 @@
       ? Array.prototype.map.call(lineEls, function (el) { return el.textContent.trim(); })
       : [heroTitle.textContent.trim()];
     heroTitle.setAttribute("aria-label", lines.join(" "));
+    var swoosh = heroTitle.querySelector(".hero-swoosh");
     heroTitle.textContent = "";
     var wordIndex = 0;
     lines.forEach(function (line, li) {
@@ -80,6 +81,11 @@
         if (i < words.length - 1) lineWrap.appendChild(document.createTextNode(" "));
       });
       if (lineEls.length && li < lines.length - 1) heroTitle.appendChild(document.createTextNode(" "));
+      /* the orange dashed curve sits under the last line */
+      if (swoosh && li === lines.length - 1) {
+        lineWrap.classList.add("hero-line-last");
+        lineWrap.appendChild(swoosh);
+      }
     });
   }
 
