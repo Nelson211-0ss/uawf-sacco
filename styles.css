@@ -102,7 +102,7 @@ svg.feather {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+  transition: transform 0.35s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .btn svg.feather { width: 18px; height: 18px; transition: transform 0.35s var(--ease); }
 .btn:hover { transform: translateY(-2px); }
@@ -112,11 +112,10 @@ svg.feather {
 .btn-orange {
   background: var(--orange);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(230, 118, 27, 0.28);
 }
-.btn-orange:hover { color: #fff; background: var(--orange-dark); box-shadow: 0 12px 28px rgba(230, 118, 27, 0.38); }
+.btn-orange:hover { color: #fff; background: var(--orange-dark); }
 
-.btn-glass { background: var(--deep-green); color: #fff; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); }
+.btn-glass { background: var(--deep-green); color: #fff; }
 .btn-glass:hover { background: #0C2A1A; color: #fff; }
 
 .btn-block { width: 100%; margin-top: 22px; }
@@ -703,7 +702,6 @@ header.site-header.mega-open { background: var(--white); box-shadow: none; }
   width: calc(50% - 6px);
   border-radius: 8px;
   background: var(--white);
-  box-shadow: 0 4px 14px rgba(20, 67, 42, 0.1);
   transition: transform 0.5s var(--ease);
 }
 .calc-tabs.savings .calc-tab-indicator { transform: translateX(100%); }
@@ -947,7 +945,7 @@ main > .section:last-child { padding-bottom: calc(clamp(72px, 10vw, 112px) + 90p
 .footer-cta h2 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 8px; }
 .footer-cta p { margin: 0; max-width: 52ch; color: rgba(255, 255, 255, 0.9); }
 .footer-cta-actions { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
-.btn-light { background: #fff; color: var(--deep-green); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); }
+.btn-light { background: #fff; color: var(--deep-green); }
 .btn-light:hover { background: var(--light-green); color: var(--deep-green); }
 .btn-ghost-light { background: var(--deep-green); color: #fff; }
 .btn-ghost-light:hover { background: #0C2A1A; color: #fff; }
@@ -1011,12 +1009,11 @@ main > .section:last-child { padding-bottom: calc(clamp(72px, 10vw, 112px) + 90p
   align-items: center;
   justify-content: center;
   color: #fff;
-  box-shadow: 0 6px 16px rgba(230, 118, 27, 0.3);
-  transition: background 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.4s var(--ease-spring);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.4s var(--ease-spring);
 }
 .social-icons a svg.feather { width: 17px; height: 17px; }
 .site-footer .social-icons a:hover,
-.site-footer .social-icons a:focus-visible { background: #fff; color: var(--orange); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2); transform: translateY(-4px); }
+.site-footer .social-icons a:focus-visible { background: #fff; color: var(--orange); transform: translateY(-4px); }
 
 .footer-col h4 {
   color: #fff;
@@ -1193,7 +1190,6 @@ main > .section:last-child { padding-bottom: calc(clamp(72px, 10vw, 112px) + 90p
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 26px rgba(230, 118, 27, 0.35);
   opacity: 0;
   visibility: hidden;
   transform: translateY(16px) scale(0.9);
@@ -1899,7 +1895,6 @@ main > .section:last-child { padding-bottom: calc(clamp(72px, 10vw, 112px) + 90p
     padding: 6px;
     border-radius: 12px;
     background: var(--deep-green);
-    box-shadow: 0 14px 40px rgba(12, 42, 26, 0.35);
     transform: translateY(calc(100% + 24px));
     transition: transform 0.5s var(--ease);
   }
@@ -1929,6 +1924,10 @@ main > .section:last-child { padding-bottom: calc(clamp(72px, 10vw, 112px) + 90p
   .stats-grid { grid-template-columns: 1fr; }
   .calc-results { grid-template-columns: 1fr; }
 }
+
+/* Buttons, icon buttons and social icons stay flat: no shadows */
+.btn, .btn:hover, .social-icons a, .social-icons a:hover, .slide-btn, .to-top, .mobile-bar,
+.menu-toggle, .mega-toggle, .calc-tab, .calc-tab-indicator, .m-dots button, .slide-dot { box-shadow: none; }
 
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
