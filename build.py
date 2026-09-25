@@ -6,7 +6,9 @@ edit page content in src/pages/, then run:
     python build.py
 
 The finished pages (index.html, about.html, ...) are written to the project
-root, which is what the browser and GitHub Pages serve.
+root, which is what the browser and GitHub Pages serve. Links between pages
+are written without ".html" (about, services, ...), so the address bar shows
+clean URLs like /about. Preview locally with `python serve.py`.
 
 Each file in src/pages/ starts with a small settings block:
 
@@ -57,7 +59,20 @@ def mark_current(html, nav):
     )
 
 
+PAGE_NAMES = None
+
+
+def clean_urls(html):
+    """Write page links without .html: about.html -> about, index.html -> ./"""
+    def swap(m):
+        name, rest = m.group(1), m.group(2) or ""
+        return 'href="%s%s"' % ("./" if name == "index" else name, rest)
+    return re.sub(r'href="(%s)\.html([#?][^"]*)?"' % "|".join(PAGE_NAMES), swap, html)
+
+
 def build():
+    global PAGE_NAMES
+    PAGE_NAMES = [p.stem for p in PAGES.glob("*.html")]
     head = read(PARTIALS / "head.html")
     preloader = read(PARTIALS / "preloader.html")
     header = read(PARTIALS / "header.html")
@@ -79,7 +94,7 @@ def build():
             mark_current(footer, nav),
             "</body>\n</html>\n",
         ])
-        (ROOT / page.name).write_text(html, encoding="utf-8")
+        (ROOT / page.name).write_text(clean_urls(html), encoding="utf-8")
         built.append(page.name)
     print("Built: " + ", ".join(built))
 

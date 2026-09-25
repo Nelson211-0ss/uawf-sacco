@@ -3,6 +3,24 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- Clean page addresses ----
+     Links are written without ".html" (about, services, ...). Opened straight
+     from the folder (file://) there is no web server to add it back, so add it
+     here. On a server, tidy any address still showing ".html". */
+  if (window.location.protocol === "file:") {
+    document.querySelectorAll("a[href]").forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (/^(https?:|mailto:|tel:|#)/.test(href)) return;
+      var m = href.match(/^(\.\/|[a-z-]+)([#?].*)?$/);
+      if (!m) return;
+      var page = m[1] === "./" ? "index" : m[1];
+      a.setAttribute("href", page + ".html" + (m[2] || ""));
+    });
+  } else if (/\.html$/.test(window.location.pathname) && window.history.replaceState) {
+    var cleanPath = window.location.pathname.replace(/index\.html$/, "").replace(/\.html$/, "");
+    window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
+  }
+
   /* Render feather icons */
   if (window.feather) {
     feather.replace();
@@ -407,11 +425,11 @@
   }
 
   /* ---- Active nav link for the section in view ---- */
-  /* Top-level links that point to a section on this same page, e.g. index.html#services */
+  /* Top-level links that point to a section on this same page, e.g. services#loans */
   var navLinks = mainNav ? Array.prototype.filter.call(
     mainNav.querySelectorAll(":scope > ul > li > a[href*='#']"),
     function (a) {
-      var samePage = function (path) { return path.replace(/index\.html$/, ""); };
+      var samePage = function (path) { return path.replace(/(index)?(\.html)?$/, ""); };
       return a.hash && samePage(a.pathname) === samePage(window.location.pathname);
     }
   ) : [];
@@ -609,7 +627,7 @@
     tabSavings.addEventListener("click", function () { showTab("savings"); });
   }
 
-  /* calculator.html#tab-savings opens straight on the savings tab */
+  /* calculator#tab-savings opens straight on the savings tab */
   if (tabSavings && window.location.hash === "#tab-savings") showTab("savings");
 
   /* Count up the calculator figures the first time they come into view */
@@ -669,7 +687,7 @@
     });
   }
 
-  /* ---- Contact form: pre-select the topic from links like contact.html?topic=Savings ---- */
+  /* ---- Contact form: pre-select the topic from links like contact?topic=Savings ---- */
   var topicSelect = document.getElementById("fTopic");
   if (topicSelect && window.URLSearchParams) {
     var wantedTopic = new URLSearchParams(window.location.search).get("topic");

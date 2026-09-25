@@ -4,15 +4,17 @@ Website for United Agricultural Workers & Farmers Savings & Credit Cooperative (
 
 ## Pages
 
-| Page | File |
-|---|---|
-| Home | `index.html` |
-| About | `about.html` |
-| Services | `services.html` |
-| Membership | `membership.html` |
-| Calculator | `calculator.html` |
-| FAQ | `faq.html` |
-| Contact | `contact.html` |
+| Page | Address | File |
+|---|---|---|
+| Home | `/` | `index.html` |
+| About | `/about` | `about.html` |
+| Services | `/services` | `services.html` |
+| Membership | `/membership` | `membership.html` |
+| Calculator | `/calculator` | `calculator.html` |
+| FAQ | `/faq` | `faq.html` |
+| Contact | `/contact` | `contact.html` |
+
+Addresses have no `.html`. GitHub Pages serves `/about` from `about.html` automatically.
 
 All pages share one stylesheet (`styles.css`), one script (`script.js`) and the photos in `assets/hero/`.
 
@@ -31,7 +33,9 @@ After editing anything in `src/`, rebuild the pages:
 python build.py
 ```
 
-This writes the finished `.html` files to the project root. Do not edit those root `.html` files directly, because the next build will overwrite them.
+This writes the finished `.html` files to the project root, with links between pages written without `.html`.
+
+To preview with clean addresses, run `python serve.py` and open http://localhost:8000. Opening the files straight from the folder also works; the site adds `.html` back to links automatically in that case. Do not edit those root `.html` files directly, because the next build will overwrite them.
 
 ## Before going live
 

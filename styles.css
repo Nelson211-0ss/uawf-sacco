@@ -1323,37 +1323,23 @@ main > .section:last-child { padding-bottom: calc(clamp(44px, 5.5vw, 64px) + 90p
 .js .preloader { display: flex; }
 .is-loading body { overflow: hidden; }
 .preloader-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.preloader-mark { position: relative; width: 76px; height: 76px; display: flex; align-items: center; justify-content: center; }
-.preloader-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.preloader-icon { width: 52px; height: 52px; object-fit: contain; transform: scale(0.6); opacity: 0; animation: plIconIn 0.7s var(--ease-spring) 0.1s forwards; }
-@keyframes plIconIn { to { opacity: 1; transform: scale(1); } }
-.pl-spin {
-  stroke-dasharray: 22 78;
-  transform-box: view-box;
-  transform-origin: 32px 32px;
-  animation: plSpin 1.1s linear infinite;
-}
-.preloader-name {
-  margin: 14px 0 2px;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
+.preloader-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.pl-icon {
+  width: 58px;
+  height: auto;
   opacity: 0;
-  animation: fadeUp 0.7s var(--ease) 0.3s forwards;
-  transform: translateY(10px);
+  transform: scale(0.4) rotate(-120deg);
+  animation: plIconIn 0.8s var(--ease-spring) 0.1s forwards, plPulse 1.6s var(--ease) 1s infinite;
 }
-.preloader-tag {
-  margin: 0 0 14px;
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #FFCFA6;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeUp 0.7s var(--ease) 0.45s forwards;
+.pl-word {
+  width: 168px;
+  height: auto;
+  clip-path: inset(0 100% 0 0);
+  animation: plWordIn 0.7s var(--ease) 0.55s forwards;
 }
+@keyframes plIconIn { to { opacity: 1; transform: none; } }
+@keyframes plPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes plWordIn { to { clip-path: inset(0 0 0 0); } }
 .preloader-bar {
   width: 110px;
   height: 3px;
@@ -1371,8 +1357,6 @@ main > .section:last-child { padding-bottom: calc(clamp(44px, 5.5vw, 64px) + 90p
 }
 .preloader.done .preloader-inner { animation: plInnerOut 0.4s var(--ease) forwards; }
 .preloader.done { animation: plCurtain 0.75s var(--ease) 0.2s forwards; }
-@keyframes plSpin { to { transform: rotate(360deg); } }
-@keyframes plPop { to { transform: scale(1); } }
 @keyframes plInnerOut { to { opacity: 0; transform: translateY(-16px) scale(0.96); } }
 @keyframes plCurtain { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 100% 0); } }
 
