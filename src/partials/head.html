@@ -6,10 +6,12 @@
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="icon" href="assets/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/logo/icon.png">
+<link rel="apple-touch-icon" href="assets/logo/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add("js", "is-loading");</script>
+<link rel="preload" as="image" href="assets/hero/maize-960.webp" imagesrcset="assets/hero/maize-480.webp 480w, assets/hero/maize-960.webp 960w, assets/hero/maize-1440.webp 1440w" imagesizes="100vw" data-home-only>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,600&amp;display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(r){r.classList.add("js");var seen=false;try{seen=!!sessionStorage.getItem("uawf-seen")}catch(e){}r.classList.add(seen?"no-preload":"is-loading")})(document.documentElement);</script>
 </head>

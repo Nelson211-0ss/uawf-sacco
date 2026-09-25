@@ -16,7 +16,7 @@ Website for United Agricultural Workers & Farmers Savings & Credit Cooperative (
 
 Each page is a folder with its own `index.html`, so addresses have no `.html` on any web server (VS Code Live Server, GitHub Pages, ...). The old `about.html`-style files just redirect to the new addresses.
 
-All pages share one stylesheet (`styles.css`), one script (`script.js`) and the photos in `assets/hero/`.
+All pages share one stylesheet and one script, built to `assets/site.css` and `assets/site.js`.
 
 ## Editing the site
 
@@ -26,8 +26,10 @@ The header and footer are shared by every page, so they live in one place:
 - `src/partials/footer.html`: footer, mobile quick-action bar and scripts
 - `src/partials/head.html` and `src/partials/preloader.html`: page head and preloader
 - `src/pages/*.html`: the content of each page
+- `src/styles.css` and `src/script.js`: styles and behaviour
+- `images/photos/` and `images/logo/`: original photos and logos
 
-After editing anything in `src/`, rebuild the pages:
+After editing anything in `src/` or `images/`, rebuild the site (needs `pip install pillow rcssmin rjsmin` once):
 
 ```
 python build.py
@@ -36,6 +38,17 @@ python build.py
 This writes the finished `.html` files to the project root, with links between pages written without `.html`.
 
 Preview with VS Code Live Server, or by opening `index.html` straight from the folder. Do not edit the built `.html` files directly, because the next build will overwrite them.
+
+## Speed
+
+The build keeps the site light:
+
+- photos become WebP in three sizes, and each device downloads only the size it needs
+- the later slideshow photos and the mega menu photos load only when needed
+- icons are built into the pages, so no icon script is downloaded
+- CSS and JavaScript are minified
+- the Google map loads only when a visitor taps "Show map"
+- the preloader shows once per visit and lifts as soon as the page is ready
 
 ## Before going live
 

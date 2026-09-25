@@ -19,12 +19,9 @@
     window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
   }
 
-  /* Render feather icons */
-  if (window.feather) {
-    feather.replace();
-  }
 
-  /* ---- Preloader: fills the bar while the page loads, then lifts like a curtain ---- */
+  /* ---- Preloader: shown on the first page of a visit only, and lifted as soon as
+     the page can be read (it does not wait for every photo) ---- */
   var preloader = document.getElementById("preloader");
   var preloaderBar = document.getElementById("preloaderBar");
   var root = document.documentElement;
@@ -32,15 +29,18 @@
   function finishLoading() {
     root.classList.remove("is-loading");
     if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+    try { sessionStorage.setItem("uawf-seen", "1"); } catch (err) { /* private mode */ }
   }
 
-  if (preloader) {
+  if (preloader && root.classList.contains("no-preload")) {
+    finishLoading();
+  } else if (preloader) {
     var progress = 0;
-    var MIN_SHOW = reduceMotion ? 0 : 900;
+    var MIN_SHOW = reduceMotion ? 0 : 700;
     var progressTimer = setInterval(function () {
-      progress += (90 - progress) * 0.12;
+      progress += (92 - progress) * 0.18;
       if (preloaderBar) preloaderBar.style.width = progress.toFixed(1) + "%";
-    }, 90);
+    }, 60);
     var hidden = false;
     var hidePreloader = function () {
       if (hidden) return;
@@ -51,14 +51,21 @@
       setTimeout(function () {
         if (reduceMotion) { finishLoading(); return; }
         preloader.classList.add("done");
-        /* let the page animations start as the curtain begins to rise */
-        setTimeout(function () { root.classList.remove("is-loading"); }, 280);
-        setTimeout(finishLoading, 1000);
-      }, wait + 180);
+        setTimeout(function () { root.classList.remove("is-loading"); }, 200);
+        setTimeout(finishLoading, 900);
+      }, wait);
     };
-    if (document.readyState === "complete") hidePreloader();
-    else window.addEventListener("load", hidePreloader);
-    setTimeout(hidePreloader, 5000); /* never block the page for long on a slow connection */
+    /* ready once fonts are in and the first banner photo has loaded */
+    var firstPhoto = document.querySelector(".hero-slide.is-active img, .page-hero-bg img");
+    var ready = [document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()];
+    if (firstPhoto && !firstPhoto.complete) {
+      ready.push(new Promise(function (resolve) {
+        firstPhoto.addEventListener("load", resolve);
+        firstPhoto.addEventListener("error", resolve);
+      }));
+    }
+    Promise.all(ready).then(hidePreloader, hidePreloader);
+    setTimeout(hidePreloader, 2500); /* never hold the page for long on a slow connection */
   } else {
     root.classList.remove("is-loading");
   }
@@ -196,8 +203,9 @@
       slideLabel.textContent = slide.dataset.label;
       slideCaption.textContent = slide.dataset.caption;
       slideNum.textContent = pad(current + 1);
-      if (window.feather && feather.icons[slide.dataset.icon]) {
-        slideIcon.innerHTML = feather.icons[slide.dataset.icon].toSvg();
+      var iconSrc = document.querySelector('#iconSprites [data-icon="' + slide.dataset.icon + '"]');
+      if (iconSrc) {
+        slideIcon.innerHTML = iconSrc.innerHTML;
       }
       slideInfo.classList.remove("swap");
       void slideInfo.offsetWidth;
@@ -212,6 +220,15 @@
       timer = setTimeout(function () { goTo(current + 1); }, ms);
     }
 
+    function loadSlide(slide) {
+      var img = slide && slide.querySelector("img[data-src]");
+      if (!img) return;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+      img.removeAttribute("data-srcset");
+    }
+
     function goTo(n) {
       n = (n + slides.length) % slides.length;
       if (n === current) return;
@@ -220,6 +237,8 @@
       prev.classList.add("is-leaving");
       setTimeout(function () { prev.classList.remove("is-leaving"); }, 1150);
       current = n;
+      loadSlide(slides[current]);
+      loadSlide(slides[(current + 1) % slides.length]);
       slides[current].classList.add("is-active");
       renderCaption();
       renderDots();
@@ -267,6 +286,10 @@
 
     renderDots();
     schedule(SLIDE_MS);
+    /* fetch the next photo once the page itself has finished loading */
+    var loadNext = function () { loadSlide(slides[1]); };
+    if (document.readyState === "complete") setTimeout(loadNext, 300);
+    else window.addEventListener("load", function () { setTimeout(loadNext, 300); });
   }
 
   /* ---- Mobile navigation toggle ---- */
@@ -303,6 +326,15 @@
     clearTimeout(item._closeTimer);
     if (open) megaItems.forEach(function (other) { if (other !== item) setMegaItem(other, false); });
     item.classList.toggle("open", open);
+    if (open) {
+      var photo = item.querySelector(".mega-feature img[data-src]");
+      if (photo) {
+        photo.srcset = photo.dataset.srcset || "";
+        photo.src = photo.dataset.src;
+        photo.removeAttribute("data-src");
+        photo.removeAttribute("data-srcset");
+      }
+    }
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", (open ? "Hide " : "Show ") + label + " menu");
     var anyOpen = megaItems.some(function (m) { return m.classList.contains("open"); });
@@ -684,6 +716,18 @@
       updatesForm.reset();
     });
   }
+
+  /* ---- Map: load Google Maps only when someone asks for it (it is heavy) ---- */
+  document.querySelectorAll(".map-facade").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var frame = document.createElement("iframe");
+      frame.title = btn.dataset.title;
+      frame.src = btn.dataset.src;
+      frame.referrerPolicy = "no-referrer-when-downgrade";
+      frame.setAttribute("allowfullscreen", "");
+      btn.parentNode.replaceChild(frame, btn);
+    });
+  });
 
   /* ---- Contact form: pre-select the topic from links like contact?topic=Savings ---- */
   var topicSelect = document.getElementById("fTopic");

@@ -1,7 +1,8 @@
 """Build the UAWF SACCO site.
 
 Every page shares one header and one footer. Edit them in src/partials/,
-edit page content in src/pages/, then run:
+edit page content in src/pages/, styles in src/styles.css and behaviour in
+src/script.js, then run:
 
     python build.py
 
@@ -9,6 +10,16 @@ Home is written to index.html; every other page gets its own folder
 (about/index.html, services/index.html, ...), so addresses read /about/ and
 /services/ with no ".html" on any web server, including VS Code Live Server
 and GitHub Pages. The old about.html etc. become small redirects.
+
+The build also keeps the site fast and light:
+- photos in images/photos/ become WebP files in three sizes (assets/hero/),
+  and each page asks the browser for the size that fits the screen
+- logos in images/logo/ become small WebP files (assets/logo/)
+- icons are written straight into the pages (no icon script to download)
+- CSS and JavaScript are minified to assets/site.css and assets/site.js
+Images are only regenerated when their source file changes.
+
+Needs: pip install pillow rcssmin rjsmin
 
 Each file in src/pages/ starts with a small settings block:
 
@@ -19,21 +30,139 @@ Each file in src/pages/ starts with a small settings block:
     -->
 
 `nav` marks which header link is the current page (home, about, services,
-membership, calculator, faq or contact).
+membership, calculator, faq or contact). A header link can stand for more
+than one page, e.g. data-nav="about faq" highlights About on the FAQ page.
 """
 
+import json
 import re
 from pathlib import Path
+
+import rcssmin
+import rjsmin
+from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 PARTIALS = SRC / "partials"
 PAGES = SRC / "pages"
+ASSETS = ROOT / "assets"
+
+PHOTO_WIDTHS = (480, 960, 1440)
+# logo files: (source in images/logo, output name, height in px or None, width in px or None)
+LOGOS = [
+    ("logo.png", "logo.webp", 144, None),
+    ("logo-white.png", "logo-white.webp", 144, None),
+    ("icon-white-tight.png", "icon-white.webp", None, 120),
+    ("wordmark-white.png", "wordmark-white.webp", None, 340),
+]
 
 
 def read(path):
     return path.read_text(encoding="utf-8")
 
+
+def is_stale(src, out):
+    return not out.exists() or out.stat().st_mtime < src.stat().st_mtime
+
+
+# ---------------------------------------------------------------- images
+
+def build_images():
+    hero = ASSETS / "hero"
+    logo = ASSETS / "logo"
+    hero.mkdir(parents=True, exist_ok=True)
+    logo.mkdir(parents=True, exist_ok=True)
+    made = 0
+    for old in hero.glob("*.webp"):
+        if int(old.stem.rsplit("-", 1)[-1]) not in PHOTO_WIDTHS:
+            old.unlink()
+    for photo in sorted((ROOT / "images" / "photos").glob("*.jpg")):
+        for width in PHOTO_WIDTHS:
+            out = hero / ("%s-%d.webp" % (photo.stem, width))
+            if is_stale(photo, out):
+                im = Image.open(photo).convert("RGB")
+                im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+                if width == max(PHOTO_WIDTHS):
+                    # a very light smoothing removes grass and leaf noise that costs a lot of bytes
+                    im = im.filter(ImageFilter.GaussianBlur(0.55))
+                # banner photos sit under a dark green overlay, so they can be compressed hard
+                im.save(out, "WEBP", quality={480: 66, 960: 60}.get(width, 54), method=6)
+                made += 1
+    for name, out_name, height, width in LOGOS:
+        src = ROOT / "images" / "logo" / name
+        out = logo / out_name
+        if is_stale(src, out):
+            im = Image.open(src).convert("RGBA")
+            if height:
+                size = (round(im.width * height / im.height), height)
+            else:
+                size = (width, round(im.height * width / im.width))
+            im.resize(size, Image.LANCZOS).save(out, "WEBP", quality=88, method=6)
+            made += 1
+    icon_src = ROOT / "images" / "logo" / "icon.png"
+    touch = logo / "icon-180.png"
+    if is_stale(icon_src, touch):
+        Image.open(icon_src).resize((180, 180), Image.LANCZOS).save(touch, optimize=True)
+        made += 1
+    return made
+
+
+def responsive_images(html):
+    """Swap each photo for WebP in three sizes, sized for where it sits."""
+    def swap(m):
+        tag, prefix, name = m.group(0), m.group(1), m.group(2)
+        # the tag that wraps this photo tells us where it sits on the page
+        opened = re.findall(r"<[a-z][^>]*>", html[max(0, m.start() - 600):m.start()])
+        context = opened[-1] if opened else ""
+        if "mega-feature" in context:
+            sizes = "320px"
+        elif any(c in context for c in ("hero-slide", "page-hero-bg", "impact-bg")):
+            sizes = "100vw"
+        else:
+            sizes = "(max-width: 980px) 100vw, 50vw"
+        srcset = ", ".join("%sassets/hero/%s-%d.webp %dw" % (prefix, name, w, w) for w in PHOTO_WIDTHS)
+        tag = tag.replace('src="%sassets/hero/%s.jpg"' % (prefix, name),
+                          'src="%sassets/hero/%s-960.webp" srcset="%s" sizes="%s"' % (prefix, name, srcset, sizes))
+        # later hero slides and the mega menu photos wait until needed (see script.js)
+        if 'class="hero-slide"' in context or "mega-feature" in context:
+            tag = tag.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="')
+        return tag
+    return re.sub(r'<img [^>]*src="((?:\.\./)?)assets/hero/([a-z-]+)\.jpg"[^>]*>', swap, html)
+
+
+def webp_logos(html):
+    return re.sub(r'assets/logo/(logo|logo-white|icon-white-tight|wordmark-white)\.png',
+                  lambda m: "assets/logo/%s.webp" % ("icon-white" if m.group(1) == "icon-white-tight" else m.group(1)),
+                  html)
+
+
+# ---------------------------------------------------------------- icons
+
+ICONS = json.loads(read(SRC / "feather-icons.json"))
+
+
+def svg_icon(name, extra_class=""):
+    classes = ("feather feather-%s %s" % (name, extra_class)).strip()
+    return ('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" '
+            'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+            'stroke-linejoin="round" class="%s" aria-hidden="true" focusable="false">%s</svg>'
+            % (classes, ICONS[name]))
+
+
+def inline_icons(html):
+    def swap(m):
+        return svg_icon(m.group(1), m.group(2) or "")
+    html = re.sub(r'<i data-feather="([a-z0-9-]+)"(?: class="([^"]*)")?></i>', swap, html)
+    # icons the photo slider swaps in as the slides change
+    slide_icons = sorted(set(re.findall(r'class="hero-slide[^"]*"[^>]*data-icon="([a-z0-9-]+)"', html)))
+    if slide_icons:
+        sprite = "".join('<span data-icon="%s">%s</span>' % (n, svg_icon(n)) for n in slide_icons)
+        html = html.replace("</main>", '<div id="iconSprites" hidden>%s</div>\n</main>' % sprite, 1)
+    return html
+
+
+# ---------------------------------------------------------------- pages
 
 def parse_page(text):
     match = re.match(r"\s*<!--(.*?)-->\s*", text, re.S)
@@ -47,11 +176,7 @@ def parse_page(text):
 
 
 def mark_current(html, nav):
-    """Highlight the header and quick-bar links that point to the current page.
-
-    data-nav can list several pages, e.g. data-nav="about faq" keeps About
-    highlighted on the FAQ page, which sits inside the About menu.
-    """
+    """Highlight the header and quick-bar links that point to the current page."""
     return re.sub(
         r'(<a [^>]*data-nav="(?:[^"]* )?%s(?: [^"]*)?")' % re.escape(nav),
         r'\1 class="active" aria-current="page"',
@@ -76,7 +201,9 @@ def clean_urls(html, depth):
         return 'href="%s%s"' % (up + ("" if name == "index" else name + "/") or "./", rest)
     html = re.sub(r'href="(%s)\.html([#?][^"]*)?"' % "|".join(PAGE_NAMES), page_link, html)
     if up:
-        html = re.sub(r'(href|src)="(assets/|styles\.css|script\.js)', r'\1="%s\2' % up, html)
+        html = re.sub(r'(href|src|data-src)="assets/', r'\1="%sassets/' % up, html)
+        html = re.sub(r'(srcset|data-srcset)="([^"]*)"',
+                      lambda m: '%s="%s"' % (m.group(1), m.group(2).replace("assets/", up + "assets/")), html)
     return html
 
 
@@ -90,6 +217,10 @@ REDIRECT = """<!DOCTYPE html>
 
 def build():
     global PAGE_NAMES
+    made = build_images()
+    (ASSETS / "site.css").write_text(rcssmin.cssmin(read(SRC / "styles.css")), encoding="utf-8")
+    (ASSETS / "site.js").write_text(rjsmin.jsmin(read(SRC / "script.js")), encoding="utf-8")
+
     PAGE_NAMES = [p.stem for p in PAGES.glob("*.html")]
     head = read(PARTIALS / "head.html")
     preloader = read(PARTIALS / "preloader.html")
@@ -112,6 +243,12 @@ def build():
             mark_current(footer, nav),
             "</body>\n</html>\n",
         ])
+        html = inline_icons(webp_logos(responsive_images(html)))
+        # the home banner photo is fetched early, but only on the home page
+        if page.stem == "index":
+            html = html.replace(" data-home-only", "")
+        else:
+            html = re.sub(r"<link [^>]*data-home-only>\n", "", html)
         if page.stem == "index":
             (ROOT / "index.html").write_text(clean_urls(html, 0), encoding="utf-8")
             built.append("/")
@@ -122,7 +259,7 @@ def build():
             # keep old addresses like about.html working
             (ROOT / page.name).write_text(REDIRECT.format(to=page.stem + "/"), encoding="utf-8")
             built.append("/" + page.stem + "/")
-    print("Built: " + ", ".join(built))
+    print("Built: " + ", ".join(built) + ("  (%d images generated)" % made if made else ""))
 
 
 if __name__ == "__main__":
