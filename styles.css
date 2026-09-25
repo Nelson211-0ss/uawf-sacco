@@ -1151,7 +1151,8 @@ main > .section:last-child { padding-bottom: calc(clamp(44px, 5.5vw, 64px) + 90p
 .footer-bottom-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   flex-wrap: wrap;
   gap: 10px 24px;
 }
