@@ -29,7 +29,7 @@ The header and footer are shared by every page, so they live in one place:
 - `src/styles.css` and `src/script.js`: styles and behaviour
 - `images/photos/` and `images/logo/`: original photos and logos
 
-After editing anything in `src/` or `images/`, rebuild the site (needs `pip install pillow rcssmin rjsmin` once):
+After editing anything in `src/` or `images/`, rebuild the site (needs `pip install pillow rcssmin rjsmin beautifulsoup4` once):
 
 ```
 python build.py
@@ -38,6 +38,10 @@ python build.py
 This writes the finished `.html` files to the project root, with links between pages written without `.html`.
 
 Preview with VS Code Live Server, or by opening `index.html` straight from the folder. Do not edit the built `.html` files directly, because the next build will overwrite them.
+
+## Search
+
+The build also creates a search index of every page, section, service and FAQ answer (`assets/search-index.js`), so new content is searchable after each build. On phones, the search icon in the header opens it. On desktop, press Ctrl + K or `/`, or use "Search the site" in the footer.
 
 ## Speed
 

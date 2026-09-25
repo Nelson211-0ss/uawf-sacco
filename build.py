@@ -17,9 +17,11 @@ The build also keeps the site fast and light:
 - logos in images/logo/ become small WebP files (assets/logo/)
 - icons are written straight into the pages (no icon script to download)
 - CSS and JavaScript are minified to assets/site.css and assets/site.js
+- a search index of every page, section, service and FAQ answer is written
+  to assets/search-index.js for the site search
 Images are only regenerated when their source file changes.
 
-Needs: pip install pillow rcssmin rjsmin
+Needs: pip install pillow rcssmin rjsmin beautifulsoup4
 
 Each file in src/pages/ starts with a small settings block:
 
@@ -39,6 +41,7 @@ import re
 from pathlib import Path
 
 import rcssmin
+from bs4 import BeautifulSoup
 import rjsmin
 from PIL import Image, ImageFilter
 
@@ -162,6 +165,69 @@ def inline_icons(html):
     return html
 
 
+# ---------------------------------------------------------------- search
+
+PAGE_LABELS = {"index": "Home", "about": "About", "services": "Services", "membership": "Membership",
+               "calculator": "Calculator", "faq": "FAQ", "contact": "Contact"}
+
+
+def tidy(text):
+    return re.sub(r"\s+", " ", text or "").strip()
+
+
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:48]
+
+
+def faq_ids(content):
+    """Give each FAQ question an id (q-what-is-a-sacco) so links can open it."""
+    def add(m):
+        question = re.sub(r"<[^>]+>", "", m.group(2))
+        return '<details id="q-%s" %s><summary>%s' % (slug(question), m.group(1), m.group(2))
+    return re.sub(r'<details ((?:(?!id=)[^>])*)>\s*<summary>([^<]*)', add, content)
+
+
+def search_records(stem, content):
+    """Pull searchable entries out of one page: the page, its sections, cards and FAQs."""
+    soup = BeautifulSoup(content, "html.parser")
+    url = "./" if stem == "index" else stem + "/"
+    label = PAGE_LABELS.get(stem, stem.title())
+    h1 = soup.find("h1")
+    lead = soup.find(class_=["page-hero-lead", "hero-lead"])
+    records = [{"t": tidy(h1.get_text(" ")) if h1 else label, "p": label, "u": url,
+                "x": tidy(lead.get_text(" ")) if lead else "", "k": "page"}]
+    if stem == "index":
+        return records  # the home page only previews the other pages
+    seen = set()
+    for section in soup.find_all("section", id=True):
+        if section["id"] == "top":
+            continue
+        h2 = section.find("h2")
+        if h2:
+            first_p = section.find(class_=["section-lead", "split-lead"]) or section.find("p", class_=False)
+            records.append({"t": tidy(h2.get_text(" ")), "p": label, "u": url + "#" + section["id"],
+                            "x": tidy(first_p.get_text(" "))[:220] if first_p else "", "k": "section"})
+        for head in section.find_all(["h3", "summary", "strong"]):
+            title = tidy(head.get_text(" "))
+            if len(title) < 3 or title in seen or head.find_parent(["dt", "dd", "button"]):
+                continue
+            if head.name == "strong" and not head.find_parent(class_=["card", "value-card", "mini-card", "serve-item"]):
+                continue
+            if head.name == "summary":
+                body = head.find_next_sibling(class_="faq-body")
+                text = tidy(body.get_text(" ")) if body else ""
+            else:
+                holder = head.find_parent(class_="card") or head.parent
+                text = " ".join(tidy(p.get_text(" ")) for p in holder.find_all(["p", "li"])
+                                if "svc-tag" not in (p.get("class") or []))
+            anchor = head.find_parent("details", id=True) or head.find_parent(id=True)
+            target = anchor["id"] if anchor and anchor is not section else section["id"]
+            seen.add(title)
+            records.append({"t": title, "p": label, "u": url + "#" + target, "x": text[:300],
+                            "k": "faq" if head.name == "summary" else "item"})
+    return records
+
+
 # ---------------------------------------------------------------- pages
 
 def parse_page(text):
@@ -228,8 +294,11 @@ def build():
     footer = read(PARTIALS / "footer.html")
 
     built = []
+    index = []
     for page in sorted(PAGES.glob("*.html")):
         settings, content = parse_page(read(page))
+        content = faq_ids(content)
+        index.extend(search_records(page.stem, content))
         nav = settings.get("nav", "")
         html = "".join([
             head.replace("{{title}}", settings["title"]).replace("{{description}}", settings["description"]),
@@ -259,6 +328,9 @@ def build():
             # keep old addresses like about.html working
             (ROOT / page.name).write_text(REDIRECT.format(to=page.stem + "/"), encoding="utf-8")
             built.append("/" + page.stem + "/")
+    (ASSETS / "search-index.js").write_text(
+        "window.UAWF_SEARCH=" + json.dumps(index, ensure_ascii=False, separators=(",", ":")) + ";", encoding="utf-8")
+    print("Search index: %d entries" % len(index))
     print("Built: " + ", ".join(built) + ("  (%d images generated)" % made if made else ""))
 
 

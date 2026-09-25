@@ -752,6 +752,194 @@
     document.querySelectorAll(".faq-group").forEach(function (g) { faqObserver.observe(g); });
   }
 
+  /* ---- Site search ----
+     The search index (assets/search-index.js) is built with the site and only
+     downloaded the first time search opens. Phones get a search icon in the
+     header; on desktop, Ctrl+K or "/" opens it, and there is a footer link. */
+  var searchDialog = document.getElementById("searchDialog");
+  if (searchDialog) {
+    var searchInput = document.getElementById("searchInput");
+    var searchResults = document.getElementById("searchResults");
+    var searchStatus = document.getElementById("searchStatus");
+    var searchSuggest = document.getElementById("searchSuggest");
+    var searchToggle = document.getElementById("searchToggle");
+    var siteCss = document.querySelector('link[href$="assets/site.css"]');
+    var siteRoot = siteCss ? siteCss.href.replace(/assets\/site\.css$/, "") : "";
+    var isFile = window.location.protocol === "file:";
+    var searchIndex = null;
+    var activeResult = -1;
+    var lastFocus = null;
+
+    var fold = function (text) {
+      return (text || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+    };
+    var escapeHtml = function (text) {
+      return text.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var pageUrl = function (url) {
+      /* folder links need index.html when the site is opened straight from disk */
+      if (isFile) url = url.replace(/^\.\/(#|$)/, "index.html$1").replace(/^([a-z-]+)\/(#|$)/, "$1/index.html$2");
+      return siteRoot + url;
+    };
+
+    function loadIndex(done) {
+      if (window.UAWF_SEARCH) { searchIndex = window.UAWF_SEARCH; done(); return; }
+      var s = document.createElement("script");
+      s.src = siteRoot + "assets/search-index.js";
+      s.onload = function () { searchIndex = window.UAWF_SEARCH || []; done(); };
+      s.onerror = function () { searchStatus.textContent = "Search could not load. Please check your connection."; };
+      document.head.appendChild(s);
+    }
+
+    function highlight(text, terms) {
+      var safe = escapeHtml(text);
+      terms.forEach(function (t) {
+        if (t.length < 2) return;
+        var re = new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+        safe = safe.replace(re, "<mark>$1</mark>");
+      });
+      return safe;
+    }
+
+    function snippet(text, terms) {
+      if (!text) return "";
+      var lower = fold(text), at = -1;
+      terms.some(function (t) { at = lower.indexOf(t); return at >= 0; });
+      if (at < 0 || text.length <= 140) return text.slice(0, 140) + (text.length > 140 ? "…" : "");
+      var start = Math.max(0, at - 50);
+      var cut = text.slice(start, start + 140);
+      return (start > 0 ? "…" : "") + cut + (start + 140 < text.length ? "…" : "");
+    }
+
+    function runSearch() {
+      var query = fold(searchInput.value.trim());
+      var terms = query.split(/\s+/).filter(Boolean);
+      activeResult = -1;
+      searchResults.innerHTML = "";
+      searchSuggest.hidden = terms.length > 0;
+      if (!terms.length) { searchStatus.textContent = ""; return; }
+      if (!searchIndex) { searchStatus.textContent = "Loading…"; return; }
+
+      var hits = [];
+      searchIndex.forEach(function (r) {
+        var title = fold(r.t), body = fold(r.x), page = fold(r.p);
+        var score = 0;
+        var all = terms.every(function (t) {
+          var inTitle = title.indexOf(t) >= 0, inBody = body.indexOf(t) >= 0, inPage = page.indexOf(t) >= 0;
+          if (inTitle) score += new RegExp("(^|\\W)" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(title) ? 6 : 3;
+          if (inBody) score += 1;
+          if (inPage) score += 2;
+          return inTitle || inBody || inPage;
+        });
+        if (!all) return;
+        if (title.indexOf(query) >= 0) score += 6;
+        if (r.k === "page") score += 2;
+        hits.push({ r: r, score: score });
+      });
+      hits.sort(function (a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (!hits.length) {
+        searchStatus.innerHTML = "No results for “" + escapeHtml(searchInput.value.trim()) + "”. Try “loan”, “savings” or “join”.";
+        return;
+      }
+      searchStatus.textContent = hits.length + (hits.length === 1 ? " result" : " results");
+      var icons = { page: "file-text", section: "bookmark", item: "chevron-right", faq: "help-circle" };
+      hits.forEach(function (h, i) {
+        var li = document.createElement("li");
+        li.setAttribute("role", "option");
+        li.id = "search-result-" + i;
+        var a = document.createElement("a");
+        a.className = "search-result";
+        a.href = pageUrl(h.r.u);
+        a.innerHTML =
+          '<span class="search-result-icon" data-kind="' + h.r.k + '"></span>' +
+          '<span class="search-result-text"><span class="search-result-page">' + escapeHtml(h.r.p) +
+          (h.r.k === "faq" ? " · Question" : "") + "</span>" +
+          "<strong>" + highlight(h.r.t, terms) + "</strong>" +
+          (h.r.x ? "<small>" + highlight(snippet(h.r.x, terms), terms) + "</small>" : "") + "</span>";
+        var icon = document.querySelector('#searchIcons [data-icon="' + icons[h.r.k] + '"]');
+        if (icon) a.firstChild.innerHTML = icon.innerHTML;
+        a.addEventListener("click", closeSearch);
+        li.appendChild(a);
+        searchResults.appendChild(li);
+      });
+    }
+
+    function setActive(i) {
+      var items = searchResults.querySelectorAll(".search-result");
+      if (!items.length) return;
+      activeResult = (i + items.length) % items.length;
+      items.forEach(function (el, n) { el.classList.toggle("is-active", n === activeResult); });
+      items[activeResult].scrollIntoView({ block: "nearest" });
+      searchInput.setAttribute("aria-activedescendant", "search-result-" + activeResult);
+    }
+
+    function openSearch() {
+      if (!searchDialog.hidden) return;
+      lastFocus = document.activeElement;
+      if (typeof setMenu === "function" && mainNav && mainNav.classList.contains("open")) setMenu(false);
+      searchDialog.hidden = false;
+      document.documentElement.classList.add("search-open");
+      requestAnimationFrame(function () { searchDialog.classList.add("is-open"); });
+      searchInput.value = "";
+      runSearch();
+      setTimeout(function () { searchInput.focus(); }, 50);
+      loadIndex(runSearch);
+    }
+
+    function closeSearch() {
+      if (searchDialog.hidden) return;
+      searchDialog.classList.remove("is-open");
+      document.documentElement.classList.remove("search-open");
+      setTimeout(function () { searchDialog.hidden = true; }, reduceMotion ? 0 : 220);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    if (searchToggle) searchToggle.addEventListener("click", openSearch);
+    document.querySelectorAll("[data-search-open]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.preventDefault(); openSearch(); });
+    });
+    searchDialog.querySelectorAll("[data-search-close]").forEach(function (el) {
+      el.addEventListener("click", closeSearch);
+    });
+    searchDialog.querySelectorAll(".search-chips a").forEach(function (a) {
+      a.addEventListener("click", closeSearch);
+    });
+    searchInput.addEventListener("input", runSearch);
+    document.getElementById("searchForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var items = searchResults.querySelectorAll(".search-result");
+      var pick = items[activeResult >= 0 ? activeResult : 0];
+      if (pick) { closeSearch(); window.location.href = pick.href; }
+    });
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); setActive(activeResult + 1); }
+      if (e.key === "ArrowUp") { e.preventDefault(); setActive(activeResult - 1); }
+    });
+    document.addEventListener("keydown", function (e) {
+      var typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target || {}).tagName || "");
+      if ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !typing)) {
+        e.preventDefault();
+        openSearch();
+      } else if (e.key === "Escape" && !searchDialog.hidden) {
+        closeSearch();
+      }
+    });
+  }
+
+  /* ---- Open the FAQ question a link points to (e.g. faq/#q-is-my-money-safe) ---- */
+  function openLinkedQuestion() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target && target.tagName === "DETAILS" && !target.open) {
+      target.open = true;
+      target.classList.add("is-open");
+    }
+  }
+  openLinkedQuestion();
+  window.addEventListener("hashchange", openLinkedQuestion);
+
   /* ---- Enquiry form (client-side demo submission) ---- */
   var enquiryForm = document.getElementById("enquiryForm");
   var formStatus = document.getElementById("formStatus");

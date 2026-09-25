@@ -48,6 +48,7 @@
         <li><a href="about.html#registration">Registration &amp; governance</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact us</a></li>
+        <li><a href="#search" data-search-open>Search the site</a></li>
       </ul>
     </nav>
 
@@ -115,6 +116,36 @@
   <a href="contact.html" data-nav="contact"><i data-feather="message-circle"></i><span>Contact</span></a>
   <a href="membership.html" class="mobile-bar-cta"><i data-feather="user-plus"></i><span>Join</span></a>
 </nav>
+
+<!-- ===== SEARCH ===== -->
+<div class="search-dialog" id="searchDialog" role="dialog" aria-modal="true" aria-label="Search the site" hidden>
+  <div class="search-backdrop" data-search-close></div>
+  <div class="search-panel">
+    <form class="search-bar" role="search" id="searchForm">
+      <i data-feather="search" class="search-bar-icon"></i>
+      <label class="sr-only" for="searchInput">Search the site</label>
+      <input type="search" id="searchInput" placeholder="Search loans, savings, membership..." autocomplete="off" spellcheck="false" aria-controls="searchResults" aria-autocomplete="list">
+      <kbd class="search-kbd">Esc</kbd>
+      <button type="button" class="search-close" data-search-close aria-label="Close search"><i data-feather="x"></i></button>
+    </form>
+    <div class="search-body">
+      <div class="search-suggest" id="searchSuggest">
+        <p class="search-label">Popular</p>
+        <div class="search-chips">
+          <a href="services.html#input-loans">Farm input loans</a>
+          <a href="membership.html">How to join</a>
+          <a href="calculator.html">Loan calculator</a>
+          <a href="services.html#savings">Savings</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Office hours</a>
+        </div>
+      </div>
+      <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+      <ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
+      <div id="searchIcons" hidden><span data-icon="file-text"><i data-feather="file-text"></i></span><span data-icon="bookmark"><i data-feather="bookmark"></i></span><span data-icon="chevron-right"><i data-feather="chevron-right"></i></span><span data-icon="help-circle"><i data-feather="help-circle"></i></span></div>
+    </div>
+  </div>
+</div>
 
 <a href="#top" class="to-top" id="toTop" aria-label="Back to top"><i data-feather="arrow-up"></i></a>
 
