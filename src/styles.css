@@ -948,7 +948,7 @@ header.site-header.mega-open { background: var(--white); box-shadow: none; }
 .form-status.error { color: var(--orange-dark); }
 
 /* ===== Footer ===== */
-main > .section:last-child { padding-bottom: calc(clamp(44px, 5.5vw, 64px) + 90px); }
+main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64px) + 116px); }
 
 .site-footer {
   position: relative;
