@@ -1,0 +1,116 @@
+<!--
+title: Loan &amp; Savings Calculator | UAWF SACCO
+description: Estimate your monthly loan repayment or how your savings could grow with the UAWF SACCO loan and savings calculator. Figures in Ugandan Shillings.
+nav: calculator
+-->
+<main id="main">
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero page-hero-compact" id="top">
+    <div class="page-hero-bg" data-parallax aria-hidden="true">
+      <img src="assets/hero/maize.jpg" alt="" width="1680" height="1113" fetchpriority="high">
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb hero-anim" style="--d:0.1s" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <i data-feather="chevron-right"></i>
+        <span aria-current="page">Calculator</span>
+      </nav>
+      <h1 class="hero-title">Plan your loan and your savings.</h1>
+      <p class="page-hero-lead hero-anim" style="--d:0.45s">See roughly what a loan could cost you each month, or how your savings could grow. All figures are in Ugandan Shillings (UGX).</p>
+    </div>
+  </section>
+
+  <!-- ===== CALCULATOR ===== -->
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="card calc-card reveal">
+        <div class="calc-tabs" role="tablist" aria-label="Calculator type">
+          <span class="calc-tab-indicator" aria-hidden="true"></span>
+          <button class="calc-tab active" id="tab-loan" role="tab" aria-selected="true" aria-controls="panel-loan">Loan calculator</button>
+          <button class="calc-tab" id="tab-savings" role="tab" aria-selected="false" aria-controls="panel-savings">Savings calculator</button>
+        </div>
+
+        <div class="calc-body">
+          <form class="calc-panel active" id="panel-loan" role="tabpanel" aria-labelledby="tab-loan">
+            <div class="calc-field">
+              <label for="loanAmount">Loan amount (UGX)</label>
+              <input type="number" id="loanAmount" min="10000" step="10000" value="500000" inputmode="numeric">
+            </div>
+            <div class="calc-field">
+              <label for="loanRate">Interest rate (% per year)</label>
+              <input type="number" id="loanRate" min="1" max="60" step="0.5" value="18">
+            </div>
+            <div class="calc-field">
+              <label for="loanTerm">Repayment period (months)</label>
+              <input type="number" id="loanTerm" min="1" max="60" step="1" value="6">
+            </div>
+            <div class="calc-results">
+              <div class="calc-result highlight"><span>Estimated monthly repayment</span><strong id="loanMonthly">UGX 0</strong></div>
+              <div class="calc-result"><span>Total amount repaid</span><strong id="loanTotal">UGX 0</strong></div>
+              <div class="calc-result"><span>Total interest paid</span><strong id="loanInterest">UGX 0</strong></div>
+            </div>
+          </form>
+
+          <form class="calc-panel" id="panel-savings" role="tabpanel" aria-labelledby="tab-savings" hidden>
+            <div class="calc-field">
+              <label for="saveOpening">Opening savings (UGX)</label>
+              <input type="number" id="saveOpening" min="0" step="10000" value="0" inputmode="numeric">
+            </div>
+            <div class="calc-field">
+              <label for="saveMonthly">Amount saved per month (UGX)</label>
+              <input type="number" id="saveMonthly" min="1000" step="5000" value="50000" inputmode="numeric">
+            </div>
+            <div class="calc-field">
+              <label for="saveRate">Interest rate (% per year)</label>
+              <input type="number" id="saveRate" min="0" max="30" step="0.5" value="6">
+            </div>
+            <div class="calc-field">
+              <label for="saveTerm">Saving period (months)</label>
+              <input type="number" id="saveTerm" min="1" max="120" step="1" value="12">
+            </div>
+            <div class="calc-results">
+              <div class="calc-result"><span>Total you will have saved</span><strong id="saveContrib">UGX 0</strong></div>
+              <div class="calc-result"><span>Interest earned</span><strong id="saveInterest">UGX 0</strong></div>
+              <div class="calc-result highlight"><span>Estimated balance at the end</span><strong id="saveTotal">UGX 0</strong></div>
+            </div>
+          </form>
+        </div>
+        <p class="calc-note">These figures are examples only, to help you plan. Actual interest rates, fees and terms are set by the SACCO office and may change. Please visit us or call to confirm before you apply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIPS ===== -->
+  <section class="section" id="tips">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Reading your results</p>
+        <h2>What the numbers mean</h2>
+      </div>
+      <div class="services-grid" data-stagger>
+        <div class="card service-card">
+          <span class="card-icon icon-green"><i data-feather="calendar"></i></span>
+          <h3>Monthly repayment</h3>
+          <p>The estimated amount you would pay each month. Your actual plan can follow your harvest, so talk to us if monthly payments do not suit you.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-orange"><i data-feather="percent"></i></span>
+          <h3>Total interest</h3>
+          <p>The cost of borrowing. A shorter repayment period usually means less interest in total, but higher payments each month.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-green"><i data-feather="trending-up"></i></span>
+          <h3>Save first, borrow later</h3>
+          <p>Regular savings build the record that supports your loan application, and they earn interest while they wait.</p>
+        </div>
+      </div>
+      <div class="section-actions reveal">
+        <a href="services.html#loans" class="btn btn-orange">See our loans <i data-feather="arrow-right"></i></a>
+        <a href="contact.html" class="btn btn-glass">Talk to our office</a>
+      </div>
+    </div>
+  </section>
+
+</main>

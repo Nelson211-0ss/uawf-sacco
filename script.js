@@ -592,6 +592,9 @@
     tabSavings.addEventListener("click", function () { showTab("savings"); });
   }
 
+  /* calculator.html#tab-savings opens straight on the savings tab */
+  if (tabSavings && window.location.hash === "#tab-savings") showTab("savings");
+
   /* Count up the calculator figures the first time they come into view */
   var calcCard = document.querySelector(".calc-card");
   if ("IntersectionObserver" in window && calcCard && !reduceMotion) {
@@ -647,6 +650,29 @@
       updatesStatus.className = "updates-status success";
       updatesForm.reset();
     });
+  }
+
+  /* ---- Contact form: pre-select the topic from links like contact.html?topic=Savings ---- */
+  var topicSelect = document.getElementById("fTopic");
+  if (topicSelect && window.URLSearchParams) {
+    var wantedTopic = new URLSearchParams(window.location.search).get("topic");
+    if (wantedTopic) {
+      Array.prototype.forEach.call(topicSelect.options, function (opt) {
+        if (opt.text.toLowerCase() === wantedTopic.toLowerCase()) topicSelect.value = opt.value || opt.text;
+      });
+    }
+  }
+
+  /* ---- FAQ page: highlight the topic you are reading ---- */
+  var faqNavLinks = document.querySelectorAll(".faq-nav a");
+  if (faqNavLinks.length && "IntersectionObserver" in window) {
+    var faqObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        faqNavLinks.forEach(function (a) { a.classList.toggle("active", a.hash === "#" + entry.target.id); });
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    document.querySelectorAll(".faq-group").forEach(function (g) { faqObserver.observe(g); });
   }
 
   /* ---- Enquiry form (client-side demo submission) ---- */

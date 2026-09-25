@@ -1,0 +1,91 @@
+<!--
+title: Contact Us | UAWF SACCO, Mbarara City
+description: Visit, call or write to UAWF SACCO in Mbarara City. Office hours, phone, email, map and an enquiry form.
+nav: contact
+-->
+<main id="main">
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero page-hero-compact" id="top">
+    <div class="page-hero-bg" data-parallax aria-hidden="true">
+      <img src="assets/hero/cattle.jpg" alt="" width="1680" height="1120" fetchpriority="high">
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb hero-anim" style="--d:0.1s" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <i data-feather="chevron-right"></i>
+        <span aria-current="page">Contact</span>
+      </nav>
+      <h1 class="hero-title">Visit, call or write to us.</h1>
+      <p class="page-hero-lead hero-anim" style="--d:0.45s">Our office in Mbarara City is open Monday to Saturday. Come in for a chat, call us, or send an enquiry and we will get back to you.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <ul class="contact-list" data-stagger>
+            <li class="card contact-item">
+              <span class="card-icon icon-green" aria-hidden="true"><i data-feather="map-pin"></i></span>
+              <div><strong>Office address</strong><p>P.O. Box 1234, Mbarara City, Uganda</p></div>
+            </li>
+            <li class="card contact-item">
+              <span class="card-icon icon-orange" aria-hidden="true"><i data-feather="phone"></i></span>
+              <div><strong>Phone</strong><p><a href="tel:+2567XXXXXXXX">+256 7XX XXX XXX</a></p></div>
+            </li>
+            <li class="card contact-item">
+              <span class="card-icon icon-green" aria-hidden="true"><i data-feather="mail"></i></span>
+              <div><strong>Email</strong><p><a href="mailto:info@uawfsacco.co.ug">info@uawfsacco.co.ug</a></p></div>
+            </li>
+            <li class="card contact-item">
+              <span class="card-icon icon-orange" aria-hidden="true"><i data-feather="clock"></i></span>
+              <div><strong>Office hours</strong><p>Mon to Fri: 8:30am to 5:00pm<br>Sat: 9:00am to 1:00pm</p></div>
+            </li>
+          </ul>
+          <div class="map-wrap reveal">
+            <iframe title="Map of Mbarara City, Uganda" src="https://maps.google.com/maps?q=Mbarara%20City%2C%20Uganda&t=&z=13&ie=UTF8&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <form class="card enquiry-form reveal" style="--d:0.1s" id="enquiryForm" novalidate>
+          <h3>Send us an enquiry</h3>
+          <div class="form-row">
+            <label for="fName">Full name</label>
+            <input type="text" id="fName" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="fPhone">Phone number</label>
+            <input type="tel" id="fPhone" name="phone" required>
+          </div>
+          <div class="form-row">
+            <label for="fVillage">Village or Subcounty</label>
+            <input type="text" id="fVillage" name="village">
+          </div>
+          <div class="form-row">
+            <label for="fTopic">Topic</label>
+            <select id="fTopic" name="topic">
+              <option>Membership</option>
+              <option>Savings</option>
+              <option>Farm input loan</option>
+              <option>Development loan</option>
+              <option>Emergency loan</option>
+              <option>Group savings</option>
+              <option>Training</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="fMessage">Message</label>
+            <textarea id="fMessage" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange btn-block">Send enquiry <i data-feather="send"></i></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UAWF SACCO: Savings &amp; Credit for Farmers in Western Uganda</title>
-<meta name="description" content="United Agricultural Workers &amp; Farmers Savings &amp; Credit Cooperative (UAWF SACCO), Mbarara City. Savings, farm loans and training for farmers, livestock keepers and agricultural workers.">
+<title>Membership | Join UAWF SACCO, Mbarara</title>
+<meta name="description" content="How to join UAWF SACCO: who can join, what to bring, the four steps to membership and the benefits of being a member-owner.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add("js", "is-loading");</script>
 </head>
-<body class="page-home">
+<body class="page-membership">
 
 <!-- ===== PRELOADER ===== -->
 <div class="preloader" id="preloader" aria-hidden="true">
@@ -54,7 +54,7 @@
 
     <nav class="main-nav" id="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html" data-nav="home" class="active" aria-current="page">Home</a></li>
+        <li><a href="index.html" data-nav="home">Home</a></li>
         <li class="has-mega">
           <div class="mega-trigger">
             <a href="about.html" data-nav="about">About</a>
@@ -119,7 +119,7 @@
           </div>
         </li>
         <li><a href="services.html" data-nav="services">Services</a></li>
-        <li><a href="membership.html" data-nav="membership">Membership</a></li>
+        <li><a href="membership.html" data-nav="membership" class="active" aria-current="page">Membership</a></li>
         <li><a href="calculator.html" data-nav="calculator">Calculator</a></li>
         <li><a href="faq.html" data-nav="faq">FAQ</a></li>
         <li><a href="contact.html" data-nav="contact">Contact</a></li>
@@ -143,179 +143,37 @@
 
 <main id="main">
 
-  <!-- ===== HERO (full screen) ===== -->
-  <section class="hero" id="top">
-    <div class="hero-bg" id="heroSlides">
-      <figure class="hero-slide is-active" data-icon="package" data-label="Farm input loans" data-caption="Seed and fertiliser for the planting season, repaid after you harvest.">
-        <img src="assets/hero/maize.jpg" alt="A farmer inspecting his maize garden" width="1680" height="1113" fetchpriority="high">
-      </figure>
-      <figure class="hero-slide" data-icon="briefcase" data-label="Livestock &amp; dairy loans" data-caption="Grow your herd with loans for dairy cows, Ankole cattle and water.">
-        <img src="assets/hero/cattle.jpg" alt="Ankole cattle with long horns grazing on a farm" width="1680" height="1120" fetchpriority="low" decoding="async">
-      </figure>
-      <figure class="hero-slide" data-icon="trending-up" data-label="Harvest savings" data-caption="Save when the harvest comes in, so it lasts until the next one.">
-        <img src="assets/hero/coffee.jpg" alt="Coffee farmers picking ripe red coffee cherries" width="1680" height="1120" fetchpriority="low" decoding="async">
-      </figure>
-      <figure class="hero-slide" data-icon="shopping-bag" data-label="Agribusiness support" data-caption="Credit for produce traders, seed stockists and small agro processors.">
-        <img src="assets/hero/beans.jpg" alt="A woman sorting beans at her produce and seed stall" width="1680" height="1120" fetchpriority="low" decoding="async">
-      </figure>
-      <figure class="hero-slide" data-icon="calendar" data-label="Seasonal repayment" data-caption="Repayment plans that follow your planting and harvest calendar.">
-        <img src="assets/hero/tomatoes.jpg" alt="A farmer carrying a basin of freshly harvested tomatoes" width="1680" height="1120" fetchpriority="low" decoding="async">
-      </figure>
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero page-hero-compact" id="top">
+    <div class="page-hero-bg" data-parallax aria-hidden="true">
+      <img src="assets/hero/tomatoes.jpg" alt="" width="1680" height="1120" fetchpriority="high">
     </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1 class="hero-title"><span class="hero-line">Savings and Credit for</span> <span class="hero-line">The People who grow</span> <span class="hero-line hero-line-last">Our Food.<svg class="hero-swoosh" viewBox="0 0 220 30" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 22 C 60 6, 140 4, 216 16" fill="none" stroke="#E6761B" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 9" vector-effect="non-scaling-stroke"/></svg></span></h1>
-        <p class="hero-lead hero-anim" style="--d:0.5s">Save a little, regularly, and borrow fairly for seed, livestock and your family. Built for farmers, livestock keepers and agricultural workers around Mbarara City.</p>
-        <div class="hero-buttons hero-anim" style="--d:0.62s">
-          <a href="membership.html" class="btn btn-orange">How to join <i data-feather="arrow-right"></i></a>
-          <a href="services.html" class="btn btn-glass">Our services</a>
-        </div>
-        <ul class="hero-trust hero-anim" style="--d:0.74s">
-          <li><i data-feather="shield"></i> Registered &amp; supervised</li>
-          <li><i data-feather="users"></i> Owned by members</li>
-          <li><i data-feather="calendar"></i> Loans follow the season</li>
-        </ul>
-      </div>
-
-      <div class="slide-panel hero-anim" style="--d:0.8s" role="group" aria-roledescription="carousel" aria-label="Farming photos">
-        <div class="slide-info" id="slideInfo" aria-live="polite">
-          <span class="slide-icon" id="slideIcon"><i data-feather="package"></i></span>
-          <span class="slide-text">
-            <span class="slide-label" id="slideLabel">Farm input loans</span>
-            <span class="slide-caption" id="slideCaption">Seed and fertiliser for the planting season, repaid after you harvest.</span>
-          </span>
-        </div>
-        <div class="slide-controls">
-          <span class="slide-count"><strong id="slideNum">01</strong> / <span id="slideTotal">06</span></span>
-          <div class="slide-dots" id="slideDots"></div>
-          <button class="slide-btn" id="slidePrev" aria-label="Previous photo"><i data-feather="chevron-left"></i></button>
-          <button class="slide-btn" id="slideNext" aria-label="Next photo"><i data-feather="chevron-right"></i></button>
-        </div>
-      </div>
-    </div>
-
-</section>
-
-  <!-- ===== REGISTRATION STATS ===== -->
-  <section class="stats-band" aria-label="Registration summary">
-    <div class="container stats-grid" data-stagger>
-      <div class="card stat">
-        <span class="stat-icon"><i data-feather="calendar"></i></span>
-        <span class="stat-text"><span class="stat-label">Registered</span><span class="stat-value">22 Sep 2026</span></span>
-      </div>
-      <div class="card stat">
-        <span class="stat-icon"><i data-feather="award"></i></span>
-        <span class="stat-text"><span class="stat-label">Certificate No.</span><span class="stat-value">P.298866</span></span>
-      </div>
-      <div class="card stat">
-        <span class="stat-icon"><i data-feather="file-text"></i></span>
-        <span class="stat-text"><span class="stat-label">Registered under</span><span class="stat-value">Cap 107 Act</span></span>
-      </div>
-      <div class="card stat">
-        <span class="stat-icon"><i data-feather="map-pin"></i></span>
-        <span class="stat-text"><span class="stat-label">Based in</span><span class="stat-value">Mbarara City</span></span>
-      </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb hero-anim" style="--d:0.1s" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <i data-feather="chevron-right"></i>
+        <span aria-current="page">Membership</span>
+      </nav>
+      <h1 class="hero-title">Become a member and an owner.</h1>
+      <p class="page-hero-lead hero-anim" style="--d:0.45s">Joining UAWF SACCO takes four simple steps. Once you are a member, you own a share of the SACCO, you can save and borrow, and you have a vote.</p>
+      <ul class="page-chips hero-anim" style="--d:0.6s" aria-label="On this page">
+        <li><a href="membership.html#how-to-join">How to join</a></li>
+        <li><a href="membership.html#requirements">Who can join</a></li>
+        <li><a href="membership.html#benefits">Benefits</a></li>
+        <li><a href="membership.html#fees">Fees &amp; shares</a></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="section" id="about">
+  <!-- ===== STEPS ===== -->
+  <section class="section" id="how-to-join">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-eyebrow">About us</p>
-        <h2>Built by farmers, for farmers</h2>
+        <p class="section-eyebrow">How to join</p>
+        <h2>Four simple steps</h2>
+        <p class="section-lead">You can start at our office in Mbarara City. Our staff will guide you through each step.</p>
       </div>
-
-      <div class="about-intro">
-        <div class="about-story reveal">
-          <p>Farming income does not arrive every month. It comes at harvest, and it has to last until the next one. Most banks want a land title, a salary slip and months of paperwork before they lend a shilling. Many smallholder farmers, livestock keepers and farm workers around Mbarara simply do not have these things.</p>
-          <p>UAWF SACCO was formed by farmers and agricultural workers who decided to solve this together. Every member saves a little, regularly. Those savings are pooled and lent back out as fair credit that suits farming, for seed and fertiliser today, for a dairy cow or a water tank tomorrow. The SACCO belongs to its members, and every member has a say in how it is run.</p>
-          <a href="about.html" class="btn btn-orange about-more">Read our full story <i data-feather="arrow-right"></i></a>
-        </div>
-        <div class="about-photo reveal reveal-zoom">
-          <img src="assets/hero/tomatoes.jpg" alt="A farmer carrying a basin of freshly harvested tomatoes" width="1680" height="1120" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section class="section section-alt" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Services</p>
-        <h2>Products built around farm life</h2>
-        <p class="section-lead">Simple savings and credit that work with your harvest, your herd and your household, not against them.</p>
-      </div>
-
-      <div class="services-grid" data-stagger>
-        <a class="card service-card service-link" href="services.html#savings">
-          <span class="card-icon icon-green"><i data-feather="trending-up"></i></span>
-          <h3>Regular savings</h3>
-          <p>Save weekly or monthly, any amount you can manage. Your money is safe, it grows, and it builds your record for future loans.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-        <a class="card service-card service-link" href="services.html#input-loans">
-          <span class="card-icon icon-orange"><i data-feather="package"></i></span>
-          <h3>Farm input loans</h3>
-          <p>Borrow for seed, fertiliser, feed or tools, and repay after you harvest or sell. Sized to fit your garden or plantation.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-        <a class="card service-card service-link" href="services.html#development-loans">
-          <span class="card-icon icon-green"><i data-feather="briefcase"></i></span>
-          <h3>Development loans</h3>
-          <p>Bigger goals need bigger support: a dairy cow, a water tank, a storage store, or a small agribusiness.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-        <a class="card service-card service-link" href="services.html#emergency-loans">
-          <span class="card-icon icon-orange"><i data-feather="life-buoy"></i></span>
-          <h3>Emergency loans</h3>
-          <p>Quick help for the moments you cannot plan for, like school fees due tomorrow or a sudden medical bill.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-        <a class="card service-card service-link" href="services.html#group-accounts">
-          <span class="card-icon icon-green"><i data-feather="users"></i></span>
-          <h3>Group savings &amp; loans</h3>
-          <p>Farmer groups and workers&rsquo; associations can save and borrow together, with one shared, transparent account.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-        <a class="card service-card service-link" href="services.html#training">
-          <span class="card-icon icon-orange"><i data-feather="book-open"></i></span>
-          <h3>Training</h3>
-          <p>Free sessions on financial literacy, record keeping, good farming practice and finding better markets for your produce.</p>
-          <span class="card-link">Learn more <i data-feather="arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="section-actions reveal">
-        <a href="services.html" class="btn btn-orange">View all services <i data-feather="arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== IMPACT BANNER ===== -->
-  <section class="impact-banner">
-    <div class="impact-bg" data-parallax aria-hidden="true">
-      <img src="assets/hero/matooke.jpg" alt="" width="1680" height="945" loading="lazy">
-    </div>
-    <div class="impact-overlay">
-      <div class="container">
-        <p class="impact-quote reveal">&ldquo;We used to fear the bank. Now the SACCO feels like our own.&rdquo;</p>
-        <p class="impact-credit reveal" style="--d:0.12s">A member reflection, shared at one of our founding meetings</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MEMBERSHIP ===== -->
-  <section class="section" id="membership">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Membership</p>
-        <h2>How to join UAWF SACCO</h2>
-        <p class="section-lead">Four simple steps and you are an owner of the SACCO.</p>
-      </div>
-
       <div class="steps-grid" data-stagger>
         <div class="card step-card">
           <span class="step-number">1</span>
@@ -338,85 +196,103 @@
           <p>Begin your regular savings, weekly or monthly, whatever suits your income.</p>
         </div>
       </div>
-      <div class="section-actions reveal">
-        <a href="membership.html" class="btn btn-orange">How to join <i data-feather="arrow-right"></i></a>
-        <a href="membership.html#requirements" class="btn btn-glass">Who can join</a>
+    </div>
+  </section>
+
+  <!-- ===== REQUIREMENTS ===== -->
+  <section class="section section-alt" id="requirements">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Requirements</p>
+        <h2>Who can join, and what to bring</h2>
+      </div>
+      <div class="membership-visual">
+        <div class="membership-photo reveal reveal-zoom">
+          <img src="assets/hero/beans.jpg" alt="A woman sorting beans at her produce and seed stall" width="1680" height="1120" loading="lazy">
+        </div>
+        <div class="membership-details" data-stagger>
+          <div class="card membership-col">
+            <h3>Who can join</h3>
+            <ul class="check-list">
+              <li><i data-feather="check" class="check-icon"></i>Smallholder farmers</li>
+              <li><i data-feather="check" class="check-icon"></i>Livestock keepers</li>
+              <li><i data-feather="check" class="check-icon"></i>Farm, plantation and dairy workers</li>
+              <li><i data-feather="check" class="check-icon"></i>Agro processing workers</li>
+              <li><i data-feather="check" class="check-icon"></i>Farmer groups and associations</li>
+              <li><i data-feather="check" class="check-icon"></i>Any Ugandan aged 18 years and above</li>
+            </ul>
+          </div>
+          <div class="card membership-col">
+            <h3>What to bring</h3>
+            <ul class="check-list">
+              <li><i data-feather="check" class="check-icon"></i>National ID</li>
+              <li><i data-feather="check" class="check-icon"></i>Two passport size photos</li>
+              <li><i data-feather="check" class="check-icon"></i>Next of kin details</li>
+              <li><i data-feather="check" class="check-icon"></i>LC1 letter (if requested)</li>
+            </ul>
+            <a href="contact.html?topic=Membership" class="btn btn-orange btn-block">Contact us to start <i data-feather="arrow-right"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CALCULATOR TEASER ===== -->
-  <section class="section section-alt" id="plan">
+  <!-- ===== BENEFITS ===== -->
+  <section class="section" id="benefits">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Benefits</p>
+        <h2>What membership gives you</h2>
+        <p class="section-lead">A SACCO is owned by its members. That means the benefits stay with the people who save and borrow here.</p>
+      </div>
+      <div class="services-grid" data-stagger>
+        <div class="card service-card">
+          <span class="card-icon icon-green"><i data-feather="shield"></i></span>
+          <h3>A safe place to save</h3>
+          <p>Your savings are kept with clear records in a society registered and supervised by the Registrar.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-orange"><i data-feather="package"></i></span>
+          <h3>Loans that suit farming</h3>
+          <p>Borrow for inputs, livestock or emergencies, with repayment that follows your season.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-green"><i data-feather="pie-chart"></i></span>
+          <h3>You own a share</h3>
+          <p>Your shares make you a part owner. Any surplus benefits members, as agreed at the general meeting.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-orange"><i data-feather="check-square"></i></span>
+          <h3>A vote that counts</h3>
+          <p>One member, one vote. Elect the board and committees and help set SACCO policy.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-green"><i data-feather="book-open"></i></span>
+          <h3>Free training</h3>
+          <p>Sessions on financial literacy, record keeping, good farming practice and markets.</p>
+        </div>
+        <div class="card service-card">
+          <span class="card-icon icon-orange"><i data-feather="heart"></i></span>
+          <h3>A community behind you</h3>
+          <p>Fellow members who support each other through good seasons and hard ones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEES ===== -->
+  <section class="section section-alt" id="fees">
     <div class="container">
       <div class="cta-band reveal">
         <div class="cta-band-text">
-          <p class="cta-band-eyebrow"><i data-feather="percent"></i> Plan ahead</p>
-          <h2>Know what a loan will cost before you apply</h2>
-          <p>Use our loan and savings calculator to see an estimated monthly repayment, or how your savings could grow over the season.</p>
+          <p class="cta-band-eyebrow"><i data-feather="info"></i> Fees &amp; shares</p>
+          <h2>Entrance fee and shares</h2>
+          <p>New members pay a one-time entrance fee and buy a small number of shares. The current amounts are set by members at the general meeting, so please ask our office for the latest figures before you come.</p>
         </div>
         <div class="cta-band-actions">
-          <a href="calculator.html" class="btn btn-orange">Open the calculator <i data-feather="arrow-right"></i></a>
-          <a href="calculator.html#tab-savings" class="btn btn-light">Savings calculator</a>
+          <a href="contact.html?topic=Membership" class="btn btn-orange">Ask about joining <i data-feather="arrow-right"></i></a>
+          <a href="tel:+2567XXXXXXXX" class="btn btn-light"><i data-feather="phone"></i> Call the office</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ TEASER ===== -->
-  <section class="section" id="faq-preview">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Questions</p>
-        <h2>Frequently asked questions</h2>
-      </div>
-      <div class="faq-list" data-stagger>
-        <details class="card faq-item" open>
-          <summary>What is a SACCO?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <div class="faq-body"><p>A SACCO (Savings and Credit Cooperative) is an organisation owned by its members. Members save together, and those savings are lent back out to members as affordable loans. Any profit made benefits the members, not outside owners.</p></div>
-        </details>
-        <details class="card faq-item">
-          <summary>Do I need a land title to borrow?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <div class="faq-body"><p>No. Most of our loans do not require a land title. We look at your savings history, your group or guarantors, and your farming or business plan.</p></div>
-        </details>
-        <details class="card faq-item">
-          <summary>How much can I borrow?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <div class="faq-body"><p>How much you can borrow depends on your savings, your loan type and your ability to repay. Visit the office and our staff will guide you through the amount that fits your situation.</p></div>
-        </details>
-        <details class="card faq-item">
-          <summary>Can I repay after harvest?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <div class="faq-body"><p>Yes. Farm input loans are designed to be repaid after you harvest and sell your produce. We agree a repayment plan with you before you borrow.</p></div>
-        </details>
-      </div>
-      <div class="section-actions reveal">
-        <a href="faq.html" class="btn btn-orange">See all questions <i data-feather="arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT TEASER ===== -->
-  <section class="section section-alt" id="get-in-touch">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Get in touch</p>
-        <h2>Visit, call or write to us</h2>
-        <p class="section-lead">Our office in Mbarara City is open Monday to Saturday. Come in, call, or send us a message.</p>
-      </div>
-      <div class="quick-contact" data-stagger>
-        <a class="card contact-item" href="tel:+2567XXXXXXXX">
-          <span class="card-icon icon-orange" aria-hidden="true"><i data-feather="phone"></i></span>
-          <div><strong>Call us</strong><p>+256 7XX XXX XXX</p></div>
-        </a>
-        <a class="card contact-item" href="mailto:info@uawfsacco.co.ug">
-          <span class="card-icon icon-green" aria-hidden="true"><i data-feather="mail"></i></span>
-          <div><strong>Email us</strong><p>info@uawfsacco.co.ug</p></div>
-        </a>
-        <a class="card contact-item" href="contact.html">
-          <span class="card-icon icon-orange" aria-hidden="true"><i data-feather="map-pin"></i></span>
-          <div><strong>Visit the office</strong><p>P.O. Box 1234, Mbarara City</p></div>
-        </a>
-      </div>
-      <div class="section-actions reveal">
-        <a href="contact.html" class="btn btn-orange">Send us a message <i data-feather="arrow-right"></i></a>
       </div>
     </div>
   </section>
