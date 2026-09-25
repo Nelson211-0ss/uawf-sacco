@@ -7,14 +7,14 @@ Website for United Agricultural Workers & Farmers Savings & Credit Cooperative (
 | Page | Address | File |
 |---|---|---|
 | Home | `/` | `index.html` |
-| About | `/about` | `about.html` |
-| Services | `/services` | `services.html` |
-| Membership | `/membership` | `membership.html` |
-| Calculator | `/calculator` | `calculator.html` |
-| FAQ | `/faq` | `faq.html` |
-| Contact | `/contact` | `contact.html` |
+| About | `/about/` | `about/index.html` |
+| Services | `/services/` | `services/index.html` |
+| Membership | `/membership/` | `membership/index.html` |
+| Calculator | `/calculator/` | `calculator/index.html` |
+| FAQ | `/faq/` | `faq/index.html` |
+| Contact | `/contact/` | `contact/index.html` |
 
-Addresses have no `.html`. GitHub Pages serves `/about` from `about.html` automatically.
+Each page is a folder with its own `index.html`, so addresses have no `.html` on any web server (VS Code Live Server, GitHub Pages, ...). The old `about.html`-style files just redirect to the new addresses.
 
 All pages share one stylesheet (`styles.css`), one script (`script.js`) and the photos in `assets/hero/`.
 
@@ -35,7 +35,7 @@ python build.py
 
 This writes the finished `.html` files to the project root, with links between pages written without `.html`.
 
-To preview with clean addresses, run `python serve.py` and open http://localhost:8000. Opening the files straight from the folder also works; the site adds `.html` back to links automatically in that case. Do not edit those root `.html` files directly, because the next build will overwrite them.
+Preview with VS Code Live Server, or by opening `index.html` straight from the folder. Do not edit the built `.html` files directly, because the next build will overwrite them.
 
 ## Before going live
 

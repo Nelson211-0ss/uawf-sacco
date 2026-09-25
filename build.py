@@ -5,10 +5,10 @@ edit page content in src/pages/, then run:
 
     python build.py
 
-The finished pages (index.html, about.html, ...) are written to the project
-root, which is what the browser and GitHub Pages serve. Links between pages
-are written without ".html" (about, services, ...), so the address bar shows
-clean URLs like /about. Preview locally with `python serve.py`.
+Home is written to index.html; every other page gets its own folder
+(about/index.html, services/index.html, ...), so addresses read /about/ and
+/services/ with no ".html" on any web server, including VS Code Live Server
+and GitHub Pages. The old about.html etc. become small redirects.
 
 Each file in src/pages/ starts with a small settings block:
 
@@ -62,12 +62,30 @@ def mark_current(html, nav):
 PAGE_NAMES = None
 
 
-def clean_urls(html):
-    """Write page links without .html: about.html -> about, index.html -> ./"""
-    def swap(m):
+def clean_urls(html, depth):
+    """Make every page a folder so addresses have no .html.
+
+    about.html is written to about/index.html and linked as "about/"; any web
+    server (Live Server, GitHub Pages, ...) opens a folder's index.html.
+    Pages one folder deep get "../" in front of their links and assets.
+    """
+    up = "../" * depth
+
+    def page_link(m):
         name, rest = m.group(1), m.group(2) or ""
-        return 'href="%s%s"' % ("./" if name == "index" else name, rest)
-    return re.sub(r'href="(%s)\.html([#?][^"]*)?"' % "|".join(PAGE_NAMES), swap, html)
+        return 'href="%s%s"' % (up + ("" if name == "index" else name + "/") or "./", rest)
+    html = re.sub(r'href="(%s)\.html([#?][^"]*)?"' % "|".join(PAGE_NAMES), page_link, html)
+    if up:
+        html = re.sub(r'(href|src)="(assets/|styles\.css|script\.js)', r'\1="%s\2' % up, html)
+    return html
+
+
+REDIRECT = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Moved</title>
+<meta http-equiv="refresh" content="0; url={to}"><link rel="canonical" href="{to}">
+<script>location.replace("{to}" + location.search + location.hash);</script>
+</head><body><a href="{to}">Continue</a></body></html>
+"""
 
 
 def build():
@@ -94,8 +112,16 @@ def build():
             mark_current(footer, nav),
             "</body>\n</html>\n",
         ])
-        (ROOT / page.name).write_text(clean_urls(html), encoding="utf-8")
-        built.append(page.name)
+        if page.stem == "index":
+            (ROOT / "index.html").write_text(clean_urls(html, 0), encoding="utf-8")
+            built.append("/")
+        else:
+            folder = ROOT / page.stem
+            folder.mkdir(exist_ok=True)
+            (folder / "index.html").write_text(clean_urls(html, 1), encoding="utf-8")
+            # keep old addresses like about.html working
+            (ROOT / page.name).write_text(REDIRECT.format(to=page.stem + "/"), encoding="utf-8")
+            built.append("/" + page.stem + "/")
     print("Built: " + ", ".join(built))
 
 

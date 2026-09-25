@@ -4,20 +4,18 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---- Clean page addresses ----
-     Links are written without ".html" (about, services, ...). Opened straight
-     from the folder (file://) there is no web server to add it back, so add it
-     here. On a server, tidy any address still showing ".html". */
+     Each page lives in its own folder (about/index.html) and links point to the
+     folder ("about/"), so addresses have no ".html". Opened straight from the
+     folder (file://) the browser will not open index.html by itself, so add it. */
   if (window.location.protocol === "file:") {
     document.querySelectorAll("a[href]").forEach(function (a) {
       var href = a.getAttribute("href");
       if (/^(https?:|mailto:|tel:|#)/.test(href)) return;
-      var m = href.match(/^(\.\/|[a-z-]+)([#?].*)?$/);
-      if (!m) return;
-      var page = m[1] === "./" ? "index" : m[1];
-      a.setAttribute("href", page + ".html" + (m[2] || ""));
+      var m = href.match(/^([^#?]*\/)([#?].*)?$/);
+      if (m) a.setAttribute("href", m[1] + "index.html" + (m[2] || ""));
     });
-  } else if (/\.html$/.test(window.location.pathname) && window.history.replaceState) {
-    var cleanPath = window.location.pathname.replace(/index\.html$/, "").replace(/\.html$/, "");
+  } else if (/\/index\.html$/.test(window.location.pathname) && window.history.replaceState) {
+    var cleanPath = window.location.pathname.replace(/index\.html$/, "");
     window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
   }
 
