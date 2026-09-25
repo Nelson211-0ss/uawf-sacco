@@ -45,9 +45,13 @@ def parse_page(text):
 
 
 def mark_current(html, nav):
-    """Highlight the header and quick-bar links that point to the current page."""
+    """Highlight the header and quick-bar links that point to the current page.
+
+    data-nav can list several pages, e.g. data-nav="about faq" keeps About
+    highlighted on the FAQ page, which sits inside the About menu.
+    """
     return re.sub(
-        r'(<a [^>]*data-nav="%s")' % re.escape(nav),
+        r'(<a [^>]*data-nav="(?:[^"]* )?%s(?: [^"]*)?")' % re.escape(nav),
         r'\1 class="active" aria-current="page"',
         html,
     )

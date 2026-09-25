@@ -277,46 +277,63 @@
     });
   }
 
-  /* ---- About mega menu: hover or click on desktop, accordion on mobile ---- */
-  var megaItem = document.querySelector(".has-mega");
-  var megaToggle = megaItem ? megaItem.querySelector(".mega-toggle") : null;
-  var megaCloseTimer = null;
+  /* ---- Mega menus (About, Services): hover or click on desktop, accordion on mobile ---- */
+  var megaItems = Array.prototype.slice.call(document.querySelectorAll(".has-mega"));
   var isDesktop = function () { return window.matchMedia("(min-width: 861px)").matches; };
 
-  function setMega(open) {
-    if (!megaItem) return;
-    clearTimeout(megaCloseTimer);
-    megaItem.classList.toggle("open", open);
-    header.classList.toggle("mega-open", open && isDesktop());
-    megaToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    megaToggle.setAttribute("aria-label", open ? "Hide About menu" : "Show About menu");
+  function setMegaItem(item, open) {
+    var toggle = item.querySelector(".mega-toggle");
+    var label = item.querySelector(".mega-trigger > a").textContent.trim();
+    clearTimeout(item._closeTimer);
+    if (open) megaItems.forEach(function (other) { if (other !== item) setMegaItem(other, false); });
+    item.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", (open ? "Hide " : "Show ") + label + " menu");
+    var anyOpen = megaItems.some(function (m) { return m.classList.contains("open"); });
+    header.classList.toggle("mega-open", anyOpen && isDesktop());
     onScrollHeader();
   }
 
-  if (megaItem && megaToggle) {
-    megaToggle.addEventListener("click", function (e) {
+  /* setMega(false) closes every mega menu (used when the mobile menu closes) */
+  function setMega(open) {
+    if (!open) megaItems.forEach(function (item) { setMegaItem(item, false); });
+  }
+
+  megaItems.forEach(function (item) {
+    var toggle = item.querySelector(".mega-toggle");
+    toggle.addEventListener("click", function (e) {
       e.stopPropagation();
-      setMega(!megaItem.classList.contains("open"));
+      /* on desktop the pointer usually opened it a moment ago: keep it open */
+      var justHovered = isDesktop() && Date.now() - (item._hoverOpenedAt || 0) < 700;
+      setMegaItem(item, justHovered ? true : !item.classList.contains("open"));
     });
-    megaItem.addEventListener("mouseenter", function () {
-      if (isDesktop()) setMega(true);
-    });
-    megaItem.addEventListener("mouseleave", function () {
+    item.addEventListener("mouseenter", function () {
       if (!isDesktop()) return;
-      clearTimeout(megaCloseTimer);
-      megaCloseTimer = setTimeout(function () { setMega(false); }, 160);
+      if (!item.classList.contains("open")) item._hoverOpenedAt = Date.now();
+      setMegaItem(item, true);
     });
-    megaItem.addEventListener("focusout", function (e) {
-      if (isDesktop() && !megaItem.contains(e.relatedTarget)) setMega(false);
+    item.addEventListener("mouseleave", function () {
+      if (!isDesktop()) return;
+      clearTimeout(item._closeTimer);
+      item._closeTimer = setTimeout(function () { setMegaItem(item, false); }, 160);
     });
+    item.addEventListener("focusout", function (e) {
+      if (isDesktop() && !item.contains(e.relatedTarget)) setMegaItem(item, false);
+    });
+  });
+
+  if (megaItems.length) {
     document.addEventListener("click", function (e) {
-      if (isDesktop() && !megaItem.contains(e.target)) setMega(false);
+      if (!isDesktop()) return;
+      megaItems.forEach(function (item) { if (!item.contains(e.target)) setMegaItem(item, false); });
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && megaItem.classList.contains("open")) {
-        setMega(false);
-        megaToggle.focus();
-      }
+      if (e.key !== "Escape") return;
+      megaItems.forEach(function (item) {
+        if (!item.classList.contains("open")) return;
+        setMegaItem(item, false);
+        item.querySelector(".mega-toggle").focus();
+      });
     });
   }
 
