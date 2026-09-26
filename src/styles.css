@@ -1923,7 +1923,7 @@ a.card-link:hover { color: var(--orange); }
 
 /* ===== Site search ===== */
 .search-toggle {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
@@ -1937,8 +1937,13 @@ a.card-link:hover { color: var(--orange); }
   transition: background 0.3s var(--ease), color 0.3s var(--ease);
 }
 .search-toggle svg.feather { width: 20px; height: 20px; }
+.search-toggle:hover { background: rgba(255, 255, 255, 0.26); }
 .scrolled .search-toggle,
-.menu-open .search-toggle { background: var(--light-green); color: var(--deep-green); }
+.menu-open .search-toggle,
+.mega-open .search-toggle { background: var(--light-green); color: var(--deep-green); }
+.scrolled .search-toggle:hover,
+.mega-open .search-toggle:hover { background: #D6E8DB; }
+.header-actions { gap: 10px; }
 .search-toggle:active { transform: scale(0.94); }
 
 html.search-open,
@@ -2070,7 +2075,6 @@ html.search-open body { overflow: hidden; }
 .search-result mark { background: var(--light-orange); color: inherit; border-radius: 2px; }
 
 @media (max-width: 860px) {
-  .search-toggle { display: flex; }
   .header-actions { gap: 8px; }
   .search-panel {
     width: 100%;

@@ -41,7 +41,7 @@ Preview with VS Code Live Server, or by opening `index.html` straight from the f
 
 ## Search
 
-The build also creates a search index of every page, section, service and FAQ answer (`assets/search-index.js`), so new content is searchable after each build. On phones, the search icon in the header opens it. On desktop, press Ctrl + K or `/`, or use "Search the site" in the footer.
+The build also creates a search index of every page, section, service and FAQ answer (`assets/search-index.js`), so new content is searchable after each build. The search icon in the header opens it (next to the menu button on phones, before "Become a member" on desktop). Ctrl + K or `/` also opens it on desktop, as does "Search the site" in the footer.
 
 ## Speed
 
