@@ -103,6 +103,9 @@ def build_images():
                 size = (width, round(im.height * width / im.width))
             im.resize(size, Image.LANCZOS).save(out, "WEBP", quality=88, method=6)
             made += 1
+    texture = ROOT / "images" / "footer-texture.svg"
+    if texture.exists():
+        (ASSETS / "footer-texture.svg").write_text(read(texture), encoding="utf-8")
     icon_src = ROOT / "images" / "logo" / "icon.png"
     touch = logo / "icon-180.png"
     if is_stale(icon_src, touch):
