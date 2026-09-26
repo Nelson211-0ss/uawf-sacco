@@ -56,7 +56,7 @@ The build keeps the site light:
 
 ## Before going live
 
-- Replace the placeholder phone number `+256 7XX XXX XXX` with the office number.
+- Replace the dummy phone number `+256 700 123 456` (`tel:+256700123456`) with the real office number in `src/`, then rebuild.
 - Add the real social media links (currently `#`).
 - Add the Privacy policy and Terms of membership pages (currently `#`).
 - Connect the enquiry form and SMS sign-up to a real service; they only show a message on screen for now.
