@@ -957,14 +957,14 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
   color: #E4EEE7;
   font-size: 0.94rem;
 }
-/* Texture: faint contour lines, like furrows across a hillside farm */
+/* Texture: a faint repeating pattern of leaves, taken from the logo */
 .site-footer::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("footer-texture.svg") center top / 1440px auto repeat-y;
-  opacity: 0.09;
+  background: url("footer-texture.svg") center top / 168px 168px repeat;
+  opacity: 0.05;
   pointer-events: none;
 }
 .site-footer a { color: #CFE0D5; }
