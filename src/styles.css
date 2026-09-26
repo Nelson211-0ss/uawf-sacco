@@ -1035,10 +1035,7 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  padding: 14px 16px;
   margin: 20px 0 22px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
 }
 .footer-reg div { display: flex; flex-direction: column; gap: 2px; font-size: 0.82rem; color: #E4EEE7; }
 .footer-reg strong { color: #fff; font-size: 0.92rem; }
@@ -1090,12 +1087,7 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
 .footer-contact li a { overflow-wrap: anywhere; }
 .footer-contact li a::before { display: none; }
 
-.footer-hours {
-  margin-top: 18px;
-  padding: 16px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-}
+.footer-hours { margin-top: 22px; }
 .footer-hours-head {
   display: flex;
   align-items: center;
@@ -1137,10 +1129,7 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
   align-items: center;
   justify-content: space-between;
   gap: 20px 40px;
-  padding: 24px 28px;
-  margin-bottom: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 0 36px;
 }
 .footer-updates-text { display: flex; align-items: center; gap: 16px; }
 .footer-updates-text div { display: flex; flex-direction: column; gap: 2px; }
@@ -1217,7 +1206,7 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
   .footer-cta { padding: 26px 22px; }
   .footer-cta-actions,
   .footer-cta-actions .btn { width: 100%; }
-  .footer-updates { padding: 20px; }
+  .footer-updates { padding: 4px 0 28px; }
   .updates-form .btn { width: 100%; }
 }
 
