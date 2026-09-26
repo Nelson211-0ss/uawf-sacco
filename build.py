@@ -9,14 +9,15 @@ src/script.js, then run:
 Home is written to index.html; every other page gets its own folder
 (about/index.html, services/index.html, ...), so addresses read /about/ and
 /services/ with no ".html" on any web server, including VS Code Live Server
-and GitHub Pages. The old about.html etc. become small redirects.
+and GitHub Pages.
 
 The build also keeps the site fast and light:
 - photos in images/photos/ become WebP files in three sizes (assets/hero/),
   and each page asks the browser for the size that fits the screen
 - logos in images/logo/ become small WebP files (assets/logo/)
 - icons are written straight into the pages (no icon script to download)
-- CSS and JavaScript are minified to assets/site.css and assets/site.js
+- CSS and JavaScript are minified to assets/site.css and assets/site.js, and
+  the finished pages have comments, indentation and blank lines removed
 - a search index of every page, section, service and FAQ answer is written
   to assets/search-index.js for the site search
 Images are only regenerated when their source file changes.
@@ -231,6 +232,15 @@ def search_records(stem, content):
     return records
 
 
+# ---------------------------------------------------------------- output
+
+def compact_html(html):
+    """Lighter pages: drop comments, indentation and blank lines (source files stay readable)."""
+    html = re.sub(r"<!--(?!\[if).*?-->", "", html, flags=re.S)
+    lines = (line.strip() for line in html.splitlines())
+    return "\n".join(line for line in lines if line) + "\n"
+
+
 # ---------------------------------------------------------------- pages
 
 def parse_page(text):
@@ -276,14 +286,6 @@ def clean_urls(html, depth):
     return html
 
 
-REDIRECT = """<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><title>Moved</title>
-<meta http-equiv="refresh" content="0; url={to}"><link rel="canonical" href="{to}">
-<script>location.replace("{to}" + location.search + location.hash);</script>
-</head><body><a href="{to}">Continue</a></body></html>
-"""
-
-
 def build():
     global PAGE_NAMES
     made = build_images()
@@ -322,14 +324,12 @@ def build():
         else:
             html = re.sub(r"<link [^>]*data-home-only>\n", "", html)
         if page.stem == "index":
-            (ROOT / "index.html").write_text(clean_urls(html, 0), encoding="utf-8")
+            (ROOT / "index.html").write_text(compact_html(clean_urls(html, 0)), encoding="utf-8")
             built.append("/")
         else:
             folder = ROOT / page.stem
             folder.mkdir(exist_ok=True)
-            (folder / "index.html").write_text(clean_urls(html, 1), encoding="utf-8")
-            # keep old addresses like about.html working
-            (ROOT / page.name).write_text(REDIRECT.format(to=page.stem + "/"), encoding="utf-8")
+            (folder / "index.html").write_text(compact_html(clean_urls(html, 1)), encoding="utf-8")
             built.append("/" + page.stem + "/")
     (ASSETS / "search-index.js").write_text(
         "window.UAWF_SEARCH=" + json.dumps(index, ensure_ascii=False, separators=(",", ":")) + ";", encoding="utf-8")

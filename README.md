@@ -14,7 +14,7 @@ Website for United Agricultural Workers & Farmers Savings & Credit Cooperative (
 | FAQ | `/faq/` | `faq/index.html` |
 | Contact | `/contact/` | `contact/index.html` |
 
-Each page is a folder with its own `index.html`, so addresses have no `.html` on any web server (VS Code Live Server, GitHub Pages, ...). The old `about.html`-style files just redirect to the new addresses.
+Each page is a folder with its own `index.html`, so addresses have no `.html` on any web server (VS Code Live Server, GitHub Pages, ...).
 
 All pages share one stylesheet and one script, built to `assets/site.css` and `assets/site.js`.
 

@@ -15,534 +15,497 @@
 <script>(function(r){r.classList.add("js");var seen=false;try{seen=!!sessionStorage.getItem("uawf-seen")}catch(e){}r.classList.add(seen?"no-preload":"is-loading")})(document.documentElement);</script>
 </head>
 <body class="page-services">
-
-<!-- ===== PRELOADER ===== -->
 <div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader-inner">
-    <div class="preloader-logo">
-      <img class="pl-icon" src="../assets/logo/icon-white.webp" alt="" width="193" height="200">
-      <img class="pl-word" src="../assets/logo/wordmark-white.webp" alt="" width="555" height="110">
-    </div>
-    <div class="preloader-bar"><span id="preloaderBar"></span></div>
-  </div>
+<div class="preloader-inner">
+<div class="preloader-logo">
+<img class="pl-icon" src="../assets/logo/icon-white.webp" alt="" width="193" height="200">
+<img class="pl-word" src="../assets/logo/wordmark-white.webp" alt="" width="555" height="110">
 </div>
-
+<div class="preloader-bar"><span id="preloaderBar"></span></div>
+</div>
+</div>
 <a class="skip-link" href="#main">Skip to main content</a>
-
-<!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
-  <div class="container header-inner">
-    <a class="brand" href="../" aria-label="UAWF SACCO home">
-      <img class="brand-logo brand-logo-light" src="../assets/logo/logo-white.webp" alt="UAWF SACCO, United Agricultural Workers &amp; Farmers" width="759" height="200">
-      <img class="brand-logo brand-logo-color" src="../assets/logo/logo.webp" alt="" aria-hidden="true" width="759" height="200" loading="lazy" decoding="async">
-    </a>
-
-    <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="../" data-nav="home">Home</a></li>
-        <li class="has-mega">
-          <div class="mega-trigger">
-            <a href="../about/" data-nav="about faq">About</a>
-            <button class="mega-toggle" type="button" aria-expanded="false" aria-controls="megaAbout" aria-label="Show About menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          </div>
-          <div class="mega-menu" id="megaAbout">
-            <div class="mega-panel">
-              <div class="mega-col">
-                <p class="mega-title">Who we are</p>
-                <a class="mega-link" href="../about/#story">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
-                  <span class="mega-text"><strong>Our story</strong><small>Why farmers came together to form the SACCO</small></span>
-                </a>
-                <a class="mega-link" href="../about/#mission">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
-                  <span class="mega-text"><strong>Mission &amp; vision</strong><small>What we work towards every season</small></span>
-                </a>
-                <a class="mega-link" href="../about/#values">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
-                  <span class="mega-text"><strong>Core values</strong><small>The principles behind every decision</small></span>
-                </a>
-                <a class="mega-link" href="../about/#who-we-serve">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-                  <span class="mega-text"><strong>Who we serve</strong><small>Farmers, livestock keepers and farm workers</small></span>
-                </a>
-              </div>
-              <div class="mega-col">
-                <p class="mega-title">Governance</p>
-                <a class="mega-link" href="../about/#leadership">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
-                  <span class="mega-text"><strong>Leadership structure</strong><small>General meeting, board and committees</small></span>
-                </a>
-                <a class="mega-link" href="../about/#registration">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-                  <span class="mega-text"><strong>Registration</strong><small>Certificate P.298866 under Cap 107</small></span>
-                </a>
-                <a class="mega-link" href="../about/#journey">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag" aria-hidden="true" focusable="false"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></span>
-                  <span class="mega-text"><strong>Our journey</strong><small>From founding meetings to full registration</small></span>
-                </a>
-              </div>
-              <div class="mega-col">
-                <p class="mega-title">Help &amp; answers</p>
-                <a class="mega-link" href="../faq/">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span>
-                  <span class="mega-text"><strong>FAQ</strong><small>Straight answers to common questions</small></span>
-                </a>
-                <a class="mega-link" href="../about/#how-it-works">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></span>
-                  <span class="mega-text"><strong>How a SACCO works</strong><small>Save together, borrow fairly, share the benefits</small></span>
-                </a>
-                <a class="mega-link" href="../about/#member-rights">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
-                  <span class="mega-text"><strong>Member rights &amp; duties</strong><small>What you can expect, and what we ask</small></span>
-                </a>
-              </div>
-              <a class="mega-feature" href="../about/">
-                <img data-src="../assets/hero/coffee-960.webp" data-srcset="../assets/hero/coffee-480.webp 480w, ../assets/hero/coffee-960.webp 960w, ../assets/hero/coffee-1440.webp 1440w" sizes="320px" alt="" loading="lazy" width="1680" height="1120">
-                <span class="mega-feature-body">
-                  <span class="mega-feature-tag">About UAWF SACCO</span>
-                  <strong>Built by farmers, for farmers</strong>
-                  <span class="mega-feature-cta">Read the full story <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="has-mega">
-          <div class="mega-trigger">
-            <a href="../services/" data-nav="services calculator" class="active" aria-current="page">Services</a>
-            <button class="mega-toggle" type="button" aria-expanded="false" aria-controls="megaServices" aria-label="Show Services menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          </div>
-          <div class="mega-menu" id="megaServices">
-            <div class="mega-panel">
-              <div class="mega-col">
-                <p class="mega-title">Save</p>
-                <a class="mega-link" href="../services/#savings">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
-                  <span class="mega-text"><strong>Regular savings</strong><small>Save weekly or monthly, any amount</small></span>
-                </a>
-                <a class="mega-link" href="../services/#group-accounts">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-                  <span class="mega-text"><strong>Group savings &amp; loans</strong><small>One shared account for your group</small></span>
-                </a>
-              </div>
-              <div class="mega-col">
-                <p class="mega-title">Borrow</p>
-                <a class="mega-link" href="../services/#input-loans">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package" aria-hidden="true" focusable="false"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></span>
-                  <span class="mega-text"><strong>Farm input loans</strong><small>Seed and fertiliser, repaid after harvest</small></span>
-                </a>
-                <a class="mega-link" href="../services/#development-loans">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
-                  <span class="mega-text"><strong>Development loans</strong><small>Livestock, water tanks and agribusiness</small></span>
-                </a>
-                <a class="mega-link" href="../services/#emergency-loans">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-life-buoy" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg></span>
-                  <span class="mega-text"><strong>Emergency loans</strong><small>Quick help for school fees and bills</small></span>
-                </a>
-                <a class="mega-link" href="../services/#apply">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
-                  <span class="mega-text"><strong>How to apply</strong><small>Getting a loan, step by step</small></span>
-                </a>
-              </div>
-              <div class="mega-col">
-                <p class="mega-title">Plan &amp; learn</p>
-                <a class="mega-link" href="../calculator/">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span>
-                  <span class="mega-text"><strong>Loan calculator</strong><small>Estimate your monthly repayment</small></span>
-                </a>
-                <a class="mega-link" href="../calculator/#tab-savings">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
-                  <span class="mega-text"><strong>Savings calculator</strong><small>See how your savings could grow</small></span>
-                </a>
-                <a class="mega-link" href="../services/#training">
-                  <span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
-                  <span class="mega-text"><strong>Free training</strong><small>Money, records, farming and markets</small></span>
-                </a>
-              </div>
-              <a class="mega-feature" href="../calculator/">
-                <img data-src="../assets/hero/maize-960.webp" data-srcset="../assets/hero/maize-480.webp 480w, ../assets/hero/maize-960.webp 960w, ../assets/hero/maize-1440.webp 1440w" sizes="320px" alt="" loading="lazy" width="1680" height="1120">
-                <span class="mega-feature-body">
-                  <span class="mega-feature-tag">Plan ahead</span>
-                  <strong>Know what a loan will cost before you apply</strong>
-                  <span class="mega-feature-cta">Open the calculator <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li><a href="../membership/" data-nav="membership">Membership</a></li>
-        <li><a href="../contact/" data-nav="contact">Contact</a></li>
-      </ul>
-      <div class="nav-extra">
-        <a href="../membership/" class="btn btn-orange">Become a member <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        <a href="tel:+256700123456" class="btn btn-glass"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call the office</a>
-        <p class="nav-extra-meta"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Mon to Fri 8:30am to 5pm &middot; Sat 9am to 1pm</p>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <button class="search-toggle" id="searchToggle" type="button" aria-label="Search the site" aria-haspopup="dialog" aria-controls="searchDialog">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button>
-      <a href="../membership/" class="btn btn-orange header-cta">Become a member</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-        <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-<main id="main">
-
-  <!-- ===== PAGE HERO ===== -->
-  <section class="page-hero page-hero-compact" id="top">
-    <div class="page-hero-bg" data-parallax aria-hidden="true">
-      <img src="../assets/hero/coffee-960.webp" srcset="../assets/hero/coffee-480.webp 480w, ../assets/hero/coffee-960.webp 960w, ../assets/hero/coffee-1440.webp 1440w" sizes="100vw" alt="" width="1680" height="1120" fetchpriority="high">
-    </div>
-    <div class="page-hero-overlay" aria-hidden="true"></div>
-    <div class="container page-hero-inner">
-      <nav class="breadcrumb hero-anim" style="--d:0.1s" aria-label="Breadcrumb">
-        <a href="../">Home</a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        <span aria-current="page">Services</span>
-      </nav>
-      <h1 class="hero-title">Products built around farm life.</h1>
-      <p class="page-hero-lead hero-anim" style="--d:0.45s">Simple savings and fair credit that work with your harvest, your herd and your household, plus free training to help your farm grow.</p>
-      <ul class="page-chips hero-anim" style="--d:0.6s" aria-label="On this page">
-        <li><a href="../services/#savings">Savings</a></li>
-        <li><a href="../services/#input-loans">Farm input loans</a></li>
-        <li><a href="../services/#development-loans">Development loans</a></li>
-        <li><a href="../services/#emergency-loans">Emergency loans</a></li>
-        <li><a href="../services/#group-accounts">Groups</a></li>
-        <li><a href="../services/#training">Training</a></li>
-        <li><a href="../services/#apply">How to apply</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== SAVINGS ===== -->
-  <section class="section" id="savings-section">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Save</p>
-        <h2>Savings that grow with you</h2>
-        <p class="section-lead">Saving regularly keeps your money safe, earns you interest and builds the record you need to borrow.</p>
-      </div>
-      <div class="svc-grid" data-stagger>
-        <article class="card svc-card" id="savings">
-          <div class="svc-head">
-            <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
-            <div><p class="svc-tag">Savings</p><h3>Regular savings</h3></div>
-          </div>
-          <p>Save weekly or monthly, any amount you can manage. Your savings are kept safely with clear records, and they grow over time.</p>
-          <ul class="check-list">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Save on a schedule that suits your income</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Builds your savings history for future loans</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Clear statements of what you have saved</li>
-          </ul>
-          <a class="card-link" href="../contact/?topic=Savings">Ask about savings <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </article>
-        <article class="card svc-card" id="group-accounts">
-          <div class="svc-head">
-            <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-            <div><p class="svc-tag">Groups</p><h3>Group savings &amp; loans</h3></div>
-          </div>
-          <p>Farmer groups and workers&rsquo; associations can save and borrow together, with one shared, transparent account the whole group can follow.</p>
-          <ul class="check-list">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>One account for the whole group</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Members support and guarantee each other</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Open records the group can check at any time</li>
-          </ul>
-          <a class="card-link" href="../contact/?topic=Group%20savings">Ask about group accounts <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LOANS ===== -->
-  <section class="section section-alt" id="loans">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">Borrow</p>
-        <h2>Loans that follow the season</h2>
-        <p class="section-lead">Fair credit for farming and family life, with repayment plans agreed with you before you borrow.</p>
-      </div>
-      <div class="svc-grid svc-grid-3" data-stagger>
-        <article class="card svc-card" id="input-loans">
-          <div class="svc-head">
-            <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package" aria-hidden="true" focusable="false"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></span>
-            <div><p class="svc-tag">Loan</p><h3>Farm input loans</h3></div>
-          </div>
-          <p>Borrow for seed, fertiliser, feed or tools, and repay after you harvest or sell. Sized to fit your garden or plantation.</p>
-          <ul class="check-list">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Seed, fertiliser, feed and tools</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Repay after harvest or sale</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Most do not need a land title</li>
-          </ul>
-          <a class="card-link" href="../contact/?topic=Farm%20input%20loan">Ask about input loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </article>
-        <article class="card svc-card" id="development-loans">
-          <div class="svc-head">
-            <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
-            <div><p class="svc-tag">Loan</p><h3>Development loans</h3></div>
-          </div>
-          <p>Bigger goals need bigger support: a dairy cow, a water tank, a storage store, or a small agribusiness of your own.</p>
-          <ul class="check-list">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Livestock, water and storage</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Starting or growing an agribusiness</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Longer repayment periods</li>
-          </ul>
-          <a class="card-link" href="../contact/?topic=Development%20loan">Ask about development loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </article>
-        <article class="card svc-card" id="emergency-loans">
-          <div class="svc-head">
-            <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-life-buoy" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg></span>
-            <div><p class="svc-tag">Loan</p><h3>Emergency loans</h3></div>
-          </div>
-          <p>Quick help for the moments you cannot plan for, like school fees due tomorrow or a sudden medical bill.</p>
-          <ul class="check-list">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>School fees and medical bills</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Processed quickly</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Short, simple repayment</li>
-          </ul>
-          <a class="card-link" href="../contact/?topic=Emergency%20loan">Ask about emergency loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TRAINING ===== -->
-  <section class="section" id="training">
-    <div class="container">
-      <div class="split">
-        <div class="split-photo reveal reveal-zoom">
-          <img src="../assets/hero/maize-960.webp" srcset="../assets/hero/maize-480.webp 480w, ../assets/hero/maize-960.webp 960w, ../assets/hero/maize-1440.webp 1440w" sizes="(max-width: 980px) 100vw, 50vw" alt="A farmer inspecting his maize garden" width="1680" height="1113" loading="lazy">
-        </div>
-        <div class="split-copy">
-          <div class="reveal">
-            <p class="section-eyebrow">Learn</p>
-            <h2>Free training for members</h2>
-            <p class="split-lead">Practical sessions that help you manage money well and get more from your farm.</p>
-          </div>
-          <ul class="mini-grid" data-stagger>
-            <li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><div><strong>Financial literacy</strong><p>Budgeting, saving and borrowing wisely.</p></div></li>
-            <li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></span><div><strong>Record keeping</strong><p>Simple farm and business records.</p></div></li>
-            <li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span><div><strong>Good farming practice</strong><p>Better yields from your land and herd.</p></div></li>
-            <li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag" aria-hidden="true" focusable="false"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span><div><strong>Better markets</strong><p>Finding fair buyers for your produce.</p></div></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW TO APPLY ===== -->
-  <section class="section section-alt" id="apply">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow">How to apply</p>
-        <h2>Getting a loan, step by step</h2>
-        <p class="section-lead">Loans are for members. Here is what the process looks like once you have joined and started saving.</p>
-      </div>
-      <ol class="flow-grid" data-stagger>
-        <li class="card flow-card">
-          <span class="flow-num">01</span>
-          <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg></span>
-          <h3>Be an active member</h3>
-          <p>Join the SACCO, buy your shares and save regularly. Your savings history supports your loan.</p>
-        </li>
-        <li class="card flow-card">
-          <span class="flow-num">02</span>
-          <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
-          <h3>Talk to our office</h3>
-          <p>Tell us what you need the loan for. We will explain the options and what you need to bring.</p>
-        </li>
-        <li class="card flow-card">
-          <span class="flow-num">03</span>
-          <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
-          <h3>Apply with guarantors</h3>
-          <p>Fill the loan form with your plan and your guarantors, usually fellow members who know you.</p>
-        </li>
-        <li class="card flow-card">
-          <span class="flow-num">04</span>
-          <span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
-          <h3>Review and repayment plan</h3>
-          <p>The Credit Committee reviews your application, and we agree a repayment plan that fits your season.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="section" id="services-cta">
-    <div class="container">
-      <div class="cta-band reveal">
-        <div class="cta-band-text">
-          <p class="cta-band-eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg> Plan ahead</p>
-          <h2>See what a loan could cost you</h2>
-          <p>Try the loan calculator for an estimated monthly repayment, then talk to our office about the loan that fits you.</p>
-        </div>
-        <div class="cta-band-actions">
-          <a href="../calculator/" class="btn btn-orange">Open the calculator <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-          <a href="../contact/" class="btn btn-light">Talk to us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-cta reveal">
-      <div class="footer-cta-text">
-        <h2>Ready to grow with UAWF SACCO?</h2>
-        <p>Join fellow farmers and agricultural workers saving and borrowing together. Membership is open to any Ugandan aged 18 and above.</p>
-      </div>
-      <div class="footer-cta-actions">
-        <a href="../membership/" class="btn btn-light">Become a member <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        <a href="tel:+256700123456" class="btn btn-ghost-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call the office</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="container footer-main">
-    <div class="footer-brand">
-      <a class="brand brand-footer" href="../" aria-label="UAWF SACCO home">
-        <img src="../assets/logo/logo-white.webp" alt="UAWF SACCO, United Agricultural Workers &amp; Farmers" width="759" height="200" loading="lazy">
-      </a>
-      <p>United Agricultural Workers &amp; Farmers Savings &amp; Credit Cooperative Limited, owned by its members and serving farmers, livestock keepers and agricultural workers around Mbarara City.</p>
-
-      <div class="footer-reg">
-        <span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-        <div>
-          <strong>Registered SACCO</strong>
-          <span>Certificate No. P.298866 &middot; Cap 107</span>
-          <span>Supervised by the Registrar of Cooperative Societies</span>
-        </div>
-      </div>
-
-      <div class="social-icons" aria-label="Social media">
-        <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-        <a href="#" aria-label="X / Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" aria-hidden="true" focusable="false"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-        <a href="#" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
-        <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-        <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube" aria-hidden="true" focusable="false"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
-      </div>
-    </div>
-
-    <nav class="footer-col" aria-label="Footer: explore">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="../">Home</a></li>
-        <li><a href="../about/">About us</a></li>
-        <li><a href="../membership/">Membership</a></li>
-        <li><a href="../calculator/">Loan calculator</a></li>
-        <li><a href="../about/#registration">Registration &amp; governance</a></li>
-        <li><a href="../faq/">FAQ</a></li>
-        <li><a href="../contact/">Contact us</a></li>
-        <li><a href="#search" data-search-open>Search the site</a></li>
-      </ul>
-    </nav>
-
-    <nav class="footer-col" aria-label="Footer: services">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="../services/#savings">Regular savings</a></li>
-        <li><a href="../services/#input-loans">Farm input loans</a></li>
-        <li><a href="../services/#development-loans">Development loans</a></li>
-        <li><a href="../services/#emergency-loans">Emergency loans</a></li>
-        <li><a href="../services/#group-accounts">Group savings &amp; loans</a></li>
-        <li><a href="../services/#training">Training</a></li>
-      </ul>
-    </nav>
-
-    <div class="footer-col footer-visit">
-      <h4>Visit us</h4>
-      <ul class="footer-contact">
-        <li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span>P.O. Box 1234,<br>Mbarara City, Uganda</span></li>
-        <li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span><a href="tel:+256700123456">+256 700 123 456</a></li>
-        <li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span><a href="mailto:info@uawfsacco.co.ug">info@uawfsacco.co.ug</a></li>
-      </ul>
-      <div class="footer-hours">
-        <div class="footer-hours-head">
-          <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Office hours</span>
-          <span class="open-status" id="openStatus" hidden></span>
-        </div>
-        <dl>
-          <div><dt>Mon to Fri</dt><dd>8:30am to 5:00pm</dd></div>
-          <div><dt>Saturday</dt><dd>9:00am to 1:00pm</dd></div>
-          <div><dt>Sunday &amp; holidays</dt><dd>Closed</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="footer-updates">
-      <div class="footer-updates-text">
-        <span class="fc-icon fc-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell" aria-hidden="true" focusable="false"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></span>
-        <div>
-          <strong>Get SMS updates</strong>
-          <span>Meeting notices, savings reminders and training dates, straight to your phone.</span>
-        </div>
-      </div>
-      <form class="updates-form" id="updatesForm" novalidate>
-        <label class="sr-only" for="updatesPhone">Phone number</label>
-        <input type="tel" id="updatesPhone" name="phone" placeholder="Your phone number, e.g. 0700 123 456" required>
-        <button type="submit" class="btn btn-orange">Subscribe</button>
-        <p class="updates-status" id="updatesStatus" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>&copy; <span id="year">2026</span> United Agricultural Workers &amp; Farmers Savings &amp; Credit Cooperative Limited. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<nav class="mobile-bar" id="mobileBar" aria-label="Quick actions">
-  <a href="tel:+256700123456"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call</span></a>
-  <a href="../calculator/" data-nav="calculator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg><span>Calculator</span></a>
-  <a href="../contact/" data-nav="contact"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><span>Contact</span></a>
-  <a href="../membership/" class="mobile-bar-cta"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg><span>Join</span></a>
-</nav>
-
-<!-- ===== SEARCH ===== -->
-<div class="search-dialog" id="searchDialog" role="dialog" aria-modal="true" aria-label="Search the site" hidden>
-  <div class="search-backdrop" data-search-close></div>
-  <div class="search-panel">
-    <form class="search-bar" role="search" id="searchForm">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search search-bar-icon" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <label class="sr-only" for="searchInput">Search the site</label>
-      <input type="search" id="searchInput" placeholder="Search loans, savings, membership..." autocomplete="off" spellcheck="false" aria-controls="searchResults" aria-autocomplete="list">
-      <kbd class="search-kbd">Esc</kbd>
-      <button type="button" class="search-close" data-search-close aria-label="Close search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" aria-hidden="true" focusable="false"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-    </form>
-    <div class="search-body">
-      <div class="search-suggest" id="searchSuggest">
-        <p class="search-label">Popular</p>
-        <div class="search-chips">
-          <a href="../services/#input-loans">Farm input loans</a>
-          <a href="../membership/">How to join</a>
-          <a href="../calculator/">Loan calculator</a>
-          <a href="../services/#savings">Savings</a>
-          <a href="../faq/">FAQ</a>
-          <a href="../contact/">Office hours</a>
-        </div>
-      </div>
-      <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
-      <ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
-      <div id="searchIcons" hidden><span data-icon="file-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span><span data-icon="bookmark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark" aria-hidden="true" focusable="false"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></span><span data-icon="chevron-right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"></polyline></svg></span><span data-icon="help-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span></div>
-    </div>
-  </div>
+<div class="container header-inner">
+<a class="brand" href="../" aria-label="UAWF SACCO home">
+<img class="brand-logo brand-logo-light" src="../assets/logo/logo-white.webp" alt="UAWF SACCO, United Agricultural Workers &amp; Farmers" width="759" height="200">
+<img class="brand-logo brand-logo-color" src="../assets/logo/logo.webp" alt="" aria-hidden="true" width="759" height="200" loading="lazy" decoding="async">
+</a>
+<nav class="main-nav" id="main-nav" aria-label="Primary">
+<ul>
+<li><a href="../" data-nav="home">Home</a></li>
+<li class="has-mega">
+<div class="mega-trigger">
+<a href="../about/" data-nav="about faq">About</a>
+<button class="mega-toggle" type="button" aria-expanded="false" aria-controls="megaAbout" aria-label="Show About menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 </div>
-
+<div class="mega-menu" id="megaAbout">
+<div class="mega-panel">
+<div class="mega-col">
+<p class="mega-title">Who we are</p>
+<a class="mega-link" href="../about/#story">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+<span class="mega-text"><strong>Our story</strong><small>Why farmers came together to form the SACCO</small></span>
+</a>
+<a class="mega-link" href="../about/#mission">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+<span class="mega-text"><strong>Mission &amp; vision</strong><small>What we work towards every season</small></span>
+</a>
+<a class="mega-link" href="../about/#values">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
+<span class="mega-text"><strong>Core values</strong><small>The principles behind every decision</small></span>
+</a>
+<a class="mega-link" href="../about/#who-we-serve">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<span class="mega-text"><strong>Who we serve</strong><small>Farmers, livestock keepers and farm workers</small></span>
+</a>
+</div>
+<div class="mega-col">
+<p class="mega-title">Governance</p>
+<a class="mega-link" href="../about/#leadership">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span>
+<span class="mega-text"><strong>Leadership structure</strong><small>General meeting, board and committees</small></span>
+</a>
+<a class="mega-link" href="../about/#registration">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+<span class="mega-text"><strong>Registration</strong><small>Certificate P.298866 under Cap 107</small></span>
+</a>
+<a class="mega-link" href="../about/#journey">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag" aria-hidden="true" focusable="false"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></span>
+<span class="mega-text"><strong>Our journey</strong><small>From founding meetings to full registration</small></span>
+</a>
+</div>
+<div class="mega-col">
+<p class="mega-title">Help &amp; answers</p>
+<a class="mega-link" href="../faq/">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span>
+<span class="mega-text"><strong>FAQ</strong><small>Straight answers to common questions</small></span>
+</a>
+<a class="mega-link" href="../about/#how-it-works">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></span>
+<span class="mega-text"><strong>How a SACCO works</strong><small>Save together, borrow fairly, share the benefits</small></span>
+</a>
+<a class="mega-link" href="../about/#member-rights">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
+<span class="mega-text"><strong>Member rights &amp; duties</strong><small>What you can expect, and what we ask</small></span>
+</a>
+</div>
+<a class="mega-feature" href="../about/">
+<img data-src="../assets/hero/coffee-960.webp" data-srcset="../assets/hero/coffee-480.webp 480w, ../assets/hero/coffee-960.webp 960w, ../assets/hero/coffee-1440.webp 1440w" sizes="320px" alt="" loading="lazy" width="1680" height="1120">
+<span class="mega-feature-body">
+<span class="mega-feature-tag">About UAWF SACCO</span>
+<strong>Built by farmers, for farmers</strong>
+<span class="mega-feature-cta">Read the full story <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+</span>
+</a>
+</div>
+</div>
+</li>
+<li class="has-mega">
+<div class="mega-trigger">
+<a href="../services/" data-nav="services calculator" class="active" aria-current="page">Services</a>
+<button class="mega-toggle" type="button" aria-expanded="false" aria-controls="megaServices" aria-label="Show Services menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+</div>
+<div class="mega-menu" id="megaServices">
+<div class="mega-panel">
+<div class="mega-col">
+<p class="mega-title">Save</p>
+<a class="mega-link" href="../services/#savings">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+<span class="mega-text"><strong>Regular savings</strong><small>Save weekly or monthly, any amount</small></span>
+</a>
+<a class="mega-link" href="../services/#group-accounts">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<span class="mega-text"><strong>Group savings &amp; loans</strong><small>One shared account for your group</small></span>
+</a>
+</div>
+<div class="mega-col">
+<p class="mega-title">Borrow</p>
+<a class="mega-link" href="../services/#input-loans">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package" aria-hidden="true" focusable="false"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></span>
+<span class="mega-text"><strong>Farm input loans</strong><small>Seed and fertiliser, repaid after harvest</small></span>
+</a>
+<a class="mega-link" href="../services/#development-loans">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
+<span class="mega-text"><strong>Development loans</strong><small>Livestock, water tanks and agribusiness</small></span>
+</a>
+<a class="mega-link" href="../services/#emergency-loans">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-life-buoy" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg></span>
+<span class="mega-text"><strong>Emergency loans</strong><small>Quick help for school fees and bills</small></span>
+</a>
+<a class="mega-link" href="../services/#apply">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
+<span class="mega-text"><strong>How to apply</strong><small>Getting a loan, step by step</small></span>
+</a>
+</div>
+<div class="mega-col">
+<p class="mega-title">Plan &amp; learn</p>
+<a class="mega-link" href="../calculator/">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span>
+<span class="mega-text"><strong>Loan calculator</strong><small>Estimate your monthly repayment</small></span>
+</a>
+<a class="mega-link" href="../calculator/#tab-savings">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
+<span class="mega-text"><strong>Savings calculator</strong><small>See how your savings could grow</small></span>
+</a>
+<a class="mega-link" href="../services/#training">
+<span class="mega-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+<span class="mega-text"><strong>Free training</strong><small>Money, records, farming and markets</small></span>
+</a>
+</div>
+<a class="mega-feature" href="../calculator/">
+<img data-src="../assets/hero/maize-960.webp" data-srcset="../assets/hero/maize-480.webp 480w, ../assets/hero/maize-960.webp 960w, ../assets/hero/maize-1440.webp 1440w" sizes="320px" alt="" loading="lazy" width="1680" height="1120">
+<span class="mega-feature-body">
+<span class="mega-feature-tag">Plan ahead</span>
+<strong>Know what a loan will cost before you apply</strong>
+<span class="mega-feature-cta">Open the calculator <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+</span>
+</a>
+</div>
+</div>
+</li>
+<li><a href="../membership/" data-nav="membership">Membership</a></li>
+<li><a href="../contact/" data-nav="contact">Contact</a></li>
+</ul>
+<div class="nav-extra">
+<a href="../membership/" class="btn btn-orange">Become a member <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+<a href="tel:+256700123456" class="btn btn-glass"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call the office</a>
+<p class="nav-extra-meta"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Mon to Fri 8:30am to 5pm &middot; Sat 9am to 1pm</p>
+</div>
+</nav>
+<div class="header-actions">
+<button class="search-toggle" id="searchToggle" type="button" aria-label="Search the site" aria-haspopup="dialog" aria-controls="searchDialog">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+</button>
+<a href="../membership/" class="btn btn-orange header-cta">Become a member</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+<span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+</button>
+</div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero page-hero-compact" id="top">
+<div class="page-hero-bg" data-parallax aria-hidden="true">
+<img src="../assets/hero/coffee-960.webp" srcset="../assets/hero/coffee-480.webp 480w, ../assets/hero/coffee-960.webp 960w, ../assets/hero/coffee-1440.webp 1440w" sizes="100vw" alt="" width="1680" height="1120" fetchpriority="high">
+</div>
+<div class="page-hero-overlay" aria-hidden="true"></div>
+<div class="container page-hero-inner">
+<nav class="breadcrumb hero-anim" style="--d:0.1s" aria-label="Breadcrumb">
+<a href="../">Home</a>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<span aria-current="page">Services</span>
+</nav>
+<h1 class="hero-title">Products built around farm life.</h1>
+<p class="page-hero-lead hero-anim" style="--d:0.45s">Simple savings and fair credit that work with your harvest, your herd and your household, plus free training to help your farm grow.</p>
+<ul class="page-chips hero-anim" style="--d:0.6s" aria-label="On this page">
+<li><a href="../services/#savings">Savings</a></li>
+<li><a href="../services/#input-loans">Farm input loans</a></li>
+<li><a href="../services/#development-loans">Development loans</a></li>
+<li><a href="../services/#emergency-loans">Emergency loans</a></li>
+<li><a href="../services/#group-accounts">Groups</a></li>
+<li><a href="../services/#training">Training</a></li>
+<li><a href="../services/#apply">How to apply</a></li>
+</ul>
+</div>
+</section>
+<section class="section" id="savings-section">
+<div class="container">
+<div class="section-head reveal">
+<p class="section-eyebrow">Save</p>
+<h2>Savings that grow with you</h2>
+<p class="section-lead">Saving regularly keeps your money safe, earns you interest and builds the record you need to borrow.</p>
+</div>
+<div class="svc-grid" data-stagger>
+<article class="card svc-card" id="savings">
+<div class="svc-head">
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+<div><p class="svc-tag">Savings</p><h3>Regular savings</h3></div>
+</div>
+<p>Save weekly or monthly, any amount you can manage. Your savings are kept safely with clear records, and they grow over time.</p>
+<ul class="check-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Save on a schedule that suits your income</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Builds your savings history for future loans</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Clear statements of what you have saved</li>
+</ul>
+<a class="card-link" href="../contact/?topic=Savings">Ask about savings <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+</article>
+<article class="card svc-card" id="group-accounts">
+<div class="svc-head">
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<div><p class="svc-tag">Groups</p><h3>Group savings &amp; loans</h3></div>
+</div>
+<p>Farmer groups and workers&rsquo; associations can save and borrow together, with one shared, transparent account the whole group can follow.</p>
+<ul class="check-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>One account for the whole group</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Members support and guarantee each other</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Open records the group can check at any time</li>
+</ul>
+<a class="card-link" href="../contact/?topic=Group%20savings">Ask about group accounts <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+</article>
+</div>
+</div>
+</section>
+<section class="section section-alt" id="loans">
+<div class="container">
+<div class="section-head reveal">
+<p class="section-eyebrow">Borrow</p>
+<h2>Loans that follow the season</h2>
+<p class="section-lead">Fair credit for farming and family life, with repayment plans agreed with you before you borrow.</p>
+</div>
+<div class="svc-grid svc-grid-3" data-stagger>
+<article class="card svc-card" id="input-loans">
+<div class="svc-head">
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package" aria-hidden="true" focusable="false"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></span>
+<div><p class="svc-tag">Loan</p><h3>Farm input loans</h3></div>
+</div>
+<p>Borrow for seed, fertiliser, feed or tools, and repay after you harvest or sell. Sized to fit your garden or plantation.</p>
+<ul class="check-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Seed, fertiliser, feed and tools</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Repay after harvest or sale</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Most do not need a land title</li>
+</ul>
+<a class="card-link" href="../contact/?topic=Farm%20input%20loan">Ask about input loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+</article>
+<article class="card svc-card" id="development-loans">
+<div class="svc-head">
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
+<div><p class="svc-tag">Loan</p><h3>Development loans</h3></div>
+</div>
+<p>Bigger goals need bigger support: a dairy cow, a water tank, a storage store, or a small agribusiness of your own.</p>
+<ul class="check-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Livestock, water and storage</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Starting or growing an agribusiness</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Longer repayment periods</li>
+</ul>
+<a class="card-link" href="../contact/?topic=Development%20loan">Ask about development loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+</article>
+<article class="card svc-card" id="emergency-loans">
+<div class="svc-head">
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-life-buoy" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg></span>
+<div><p class="svc-tag">Loan</p><h3>Emergency loans</h3></div>
+</div>
+<p>Quick help for the moments you cannot plan for, like school fees due tomorrow or a sudden medical bill.</p>
+<ul class="check-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>School fees and medical bills</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Processed quickly</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check check-icon" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"></polyline></svg>Short, simple repayment</li>
+</ul>
+<a class="card-link" href="../contact/?topic=Emergency%20loan">Ask about emergency loans <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="training">
+<div class="container">
+<div class="split">
+<div class="split-photo reveal reveal-zoom">
+<img src="../assets/hero/maize-960.webp" srcset="../assets/hero/maize-480.webp 480w, ../assets/hero/maize-960.webp 960w, ../assets/hero/maize-1440.webp 1440w" sizes="(max-width: 980px) 100vw, 50vw" alt="A farmer inspecting his maize garden" width="1680" height="1113" loading="lazy">
+</div>
+<div class="split-copy">
+<div class="reveal">
+<p class="section-eyebrow">Learn</p>
+<h2>Free training for members</h2>
+<p class="split-lead">Practical sessions that help you manage money well and get more from your farm.</p>
+</div>
+<ul class="mini-grid" data-stagger>
+<li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><div><strong>Financial literacy</strong><p>Budgeting, saving and borrowing wisely.</p></div></li>
+<li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></span><div><strong>Record keeping</strong><p>Simple farm and business records.</p></div></li>
+<li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span><div><strong>Good farming practice</strong><p>Better yields from your land and herd.</p></div></li>
+<li class="card mini-card"><span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag" aria-hidden="true" focusable="false"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span><div><strong>Better markets</strong><p>Finding fair buyers for your produce.</p></div></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section section-alt" id="apply">
+<div class="container">
+<div class="section-head reveal">
+<p class="section-eyebrow">How to apply</p>
+<h2>Getting a loan, step by step</h2>
+<p class="section-lead">Loans are for members. Here is what the process looks like once you have joined and started saving.</p>
+</div>
+<ol class="flow-grid" data-stagger>
+<li class="card flow-card">
+<span class="flow-num">01</span>
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg></span>
+<h3>Be an active member</h3>
+<p>Join the SACCO, buy your shares and save regularly. Your savings history supports your loan.</p>
+</li>
+<li class="card flow-card">
+<span class="flow-num">02</span>
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+<h3>Talk to our office</h3>
+<p>Tell us what you need the loan for. We will explain the options and what you need to bring.</p>
+</li>
+<li class="card flow-card">
+<span class="flow-num">03</span>
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
+<h3>Apply with guarantors</h3>
+<p>Fill the loan form with your plan and your guarantors, usually fellow members who know you.</p>
+</li>
+<li class="card flow-card">
+<span class="flow-num">04</span>
+<span class="card-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+<h3>Review and repayment plan</h3>
+<p>The Credit Committee reviews your application, and we agree a repayment plan that fits your season.</p>
+</li>
+</ol>
+</div>
+</section>
+<section class="section" id="services-cta">
+<div class="container">
+<div class="cta-band reveal">
+<div class="cta-band-text">
+<p class="cta-band-eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg> Plan ahead</p>
+<h2>See what a loan could cost you</h2>
+<p>Try the loan calculator for an estimated monthly repayment, then talk to our office about the loan that fits you.</p>
+</div>
+<div class="cta-band-actions">
+<a href="../calculator/" class="btn btn-orange">Open the calculator <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+<a href="../contact/" class="btn btn-light">Talk to us</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-cta reveal">
+<div class="footer-cta-text">
+<h2>Ready to grow with UAWF SACCO?</h2>
+<p>Join fellow farmers and agricultural workers saving and borrowing together. Membership is open to any Ugandan aged 18 and above.</p>
+</div>
+<div class="footer-cta-actions">
+<a href="../membership/" class="btn btn-light">Become a member <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+<a href="tel:+256700123456" class="btn btn-ghost-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call the office</a>
+</div>
+</div>
+</div>
+<div class="container footer-main">
+<div class="footer-brand">
+<a class="brand brand-footer" href="../" aria-label="UAWF SACCO home">
+<img src="../assets/logo/logo-white.webp" alt="UAWF SACCO, United Agricultural Workers &amp; Farmers" width="759" height="200" loading="lazy">
+</a>
+<p>United Agricultural Workers &amp; Farmers Savings &amp; Credit Cooperative Limited, owned by its members and serving farmers, livestock keepers and agricultural workers around Mbarara City.</p>
+<div class="footer-reg">
+<span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+<div>
+<strong>Registered SACCO</strong>
+<span>Certificate No. P.298866 &middot; Cap 107</span>
+<span>Supervised by the Registrar of Cooperative Societies</span>
+</div>
+</div>
+<div class="social-icons" aria-label="Social media">
+<a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+<a href="#" aria-label="X / Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" aria-hidden="true" focusable="false"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+<a href="#" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
+<a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+<a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube" aria-hidden="true" focusable="false"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+</div>
+</div>
+<nav class="footer-col" aria-label="Footer: explore">
+<h4>Explore</h4>
+<ul>
+<li><a href="../">Home</a></li>
+<li><a href="../about/">About us</a></li>
+<li><a href="../membership/">Membership</a></li>
+<li><a href="../calculator/">Loan calculator</a></li>
+<li><a href="../about/#registration">Registration &amp; governance</a></li>
+<li><a href="../faq/">FAQ</a></li>
+<li><a href="../contact/">Contact us</a></li>
+<li><a href="#search" data-search-open>Search the site</a></li>
+</ul>
+</nav>
+<nav class="footer-col" aria-label="Footer: services">
+<h4>Services</h4>
+<ul>
+<li><a href="../services/#savings">Regular savings</a></li>
+<li><a href="../services/#input-loans">Farm input loans</a></li>
+<li><a href="../services/#development-loans">Development loans</a></li>
+<li><a href="../services/#emergency-loans">Emergency loans</a></li>
+<li><a href="../services/#group-accounts">Group savings &amp; loans</a></li>
+<li><a href="../services/#training">Training</a></li>
+</ul>
+</nav>
+<div class="footer-col footer-visit">
+<h4>Visit us</h4>
+<ul class="footer-contact">
+<li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span>P.O. Box 1234,<br>Mbarara City, Uganda</span></li>
+<li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span><a href="tel:+256700123456">+256 700 123 456</a></li>
+<li><span class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span><a href="mailto:info@uawfsacco.co.ug">info@uawfsacco.co.ug</a></li>
+</ul>
+<div class="footer-hours">
+<div class="footer-hours-head">
+<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Office hours</span>
+<span class="open-status" id="openStatus" hidden></span>
+</div>
+<dl>
+<div><dt>Mon to Fri</dt><dd>8:30am to 5:00pm</dd></div>
+<div><dt>Saturday</dt><dd>9:00am to 1:00pm</dd></div>
+<div><dt>Sunday &amp; holidays</dt><dd>Closed</dd></div>
+</dl>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="footer-updates">
+<div class="footer-updates-text">
+<span class="fc-icon fc-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell" aria-hidden="true" focusable="false"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></span>
+<div>
+<strong>Get SMS updates</strong>
+<span>Meeting notices, savings reminders and training dates, straight to your phone.</span>
+</div>
+</div>
+<form class="updates-form" id="updatesForm" novalidate>
+<label class="sr-only" for="updatesPhone">Phone number</label>
+<input type="tel" id="updatesPhone" name="phone" placeholder="Your phone number, e.g. 0700 123 456" required>
+<button type="submit" class="btn btn-orange">Subscribe</button>
+<p class="updates-status" id="updatesStatus" role="status" aria-live="polite"></p>
+</form>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container footer-bottom-inner">
+<p>&copy; <span id="year">2026</span> United Agricultural Workers &amp; Farmers Savings &amp; Credit Cooperative Limited. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<nav class="mobile-bar" id="mobileBar" aria-label="Quick actions">
+<a href="tel:+256700123456"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call</span></a>
+<a href="../calculator/" data-nav="calculator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent" aria-hidden="true" focusable="false"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg><span>Calculator</span></a>
+<a href="../contact/" data-nav="contact"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><span>Contact</span></a>
+<a href="../membership/" class="mobile-bar-cta"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg><span>Join</span></a>
+</nav>
+<div class="search-dialog" id="searchDialog" role="dialog" aria-modal="true" aria-label="Search the site" hidden>
+<div class="search-backdrop" data-search-close></div>
+<div class="search-panel">
+<form class="search-bar" role="search" id="searchForm">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search search-bar-icon" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+<label class="sr-only" for="searchInput">Search the site</label>
+<input type="search" id="searchInput" placeholder="Search loans, savings, membership..." autocomplete="off" spellcheck="false" aria-controls="searchResults" aria-autocomplete="list">
+<kbd class="search-kbd">Esc</kbd>
+<button type="button" class="search-close" data-search-close aria-label="Close search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" aria-hidden="true" focusable="false"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+</form>
+<div class="search-body">
+<div class="search-suggest" id="searchSuggest">
+<p class="search-label">Popular</p>
+<div class="search-chips">
+<a href="../services/#input-loans">Farm input loans</a>
+<a href="../membership/">How to join</a>
+<a href="../calculator/">Loan calculator</a>
+<a href="../services/#savings">Savings</a>
+<a href="../faq/">FAQ</a>
+<a href="../contact/">Office hours</a>
+</div>
+</div>
+<p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+<ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
+<div id="searchIcons" hidden><span data-icon="file-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span><span data-icon="bookmark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark" aria-hidden="true" focusable="false"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></span><span data-icon="chevron-right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"></polyline></svg></span><span data-icon="help-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span></div>
+</div>
+</div>
+</div>
 <a href="#top" class="to-top" id="toTop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up" aria-hidden="true" focusable="false"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></a>
-
 <script src="../assets/site.js" defer></script>
 </body>
 </html>

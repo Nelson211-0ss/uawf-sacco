@@ -454,30 +454,6 @@
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---- Active nav link for the section in view ---- */
-  /* Top-level links that point to a section on this same page, e.g. services#loans */
-  var navLinks = mainNav ? Array.prototype.filter.call(
-    mainNav.querySelectorAll(":scope > ul > li > a[href*='#']"),
-    function (a) {
-      var samePage = function (path) { return path.replace(/(index)?(\.html)?$/, ""); };
-      return a.hash && samePage(a.pathname) === samePage(window.location.pathname);
-    }
-  ) : [];
-  if ("IntersectionObserver" in window && navLinks.length) {
-    var linkFor = {};
-    navLinks.forEach(function (a) { linkFor[a.hash.slice(1)] = a; });
-    var sectionObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var link = linkFor[entry.target.id];
-        navLinks.forEach(function (a) { a.classList.toggle("active", a === link); });
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) {
-      sectionObserver.observe(s);
-    });
-  }
-
   /* Hand hero items back to normal styles once their entrance finishes */
   document.querySelectorAll(".hero-anim").forEach(function (el) {
     el.addEventListener("animationend", function () { el.classList.remove("hero-anim"); });
