@@ -422,8 +422,8 @@ header.site-header.mega-open { background: var(--white); box-shadow: none; }
   width: 46px;
   height: 46px;
   border-radius: 8px;
-  background: var(--light-orange);
-  color: var(--orange);
+  background: var(--light-green);
+  color: var(--deep-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -519,7 +519,7 @@ header.site-header.mega-open { background: var(--white); box-shadow: none; }
 }
 .card-icon svg.feather { width: 24px; height: 24px; }
 .icon-green { background: var(--light-green); color: var(--deep-green); }
-.icon-orange { background: var(--light-orange); color: var(--orange); }
+.icon-orange { background: var(--light-green); color: var(--deep-green); }
 .card:hover .card-icon { transform: scale(1.1) rotate(-6deg); }
 
 /* ===== About ===== */
@@ -572,8 +572,8 @@ header.site-header.mega-open { background: var(--white); box-shadow: none; }
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--orange);
-  color: #fff;
+  background: var(--light-green);
+  color: var(--deep-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1617,7 +1617,6 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
 .rights-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
 .rights-head .card-icon { margin: 0; }
 .rights-head h3 { margin: 0; font-size: 1.3rem; }
-.check-list-orange .check-icon { background: var(--light-orange); color: var(--orange-dark); }
 
 .org-top { display: flex; justify-content: center; margin-bottom: 22px; }
 .org-card { padding: 28px 24px; }
@@ -1632,7 +1631,7 @@ main > section.section:last-of-type { padding-bottom: calc(clamp(44px, 5.5vw, 64
   background: var(--deep-green);
   color: #fff;
 }
-.org-card-main .card-icon { margin: 0; background: var(--orange); color: #fff; }
+.org-card-main .card-icon { margin: 0; background: var(--light-green); color: var(--deep-green); }
 .org-card-main h3 { color: #fff; margin-bottom: 6px; }
 .org-card-main p { color: #fff; }
 .org-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -2066,7 +2065,6 @@ html.search-open body { overflow: hidden; }
   background: var(--light-green);
   color: var(--deep-green);
 }
-.search-result-icon[data-kind="faq"] { background: var(--light-orange); color: var(--orange-dark); }
 .search-result-icon svg.feather { width: 17px; height: 17px; }
 .search-result-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .search-result-page { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--orange-dark); }
