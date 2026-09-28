@@ -388,7 +388,7 @@
   /* ---- Mobile: turn long card grids into swipeable rows with dots ---- */
   var carouselQuery = window.matchMedia("(max-width: 760px)");
   var carouselTracks = Array.prototype.slice.call(document.querySelectorAll(
-    ".services-grid, .values-grid, .steps-grid, .flow-grid, .org-grid, .journey"
+    ".services-grid, .values-grid, .objectives-grid, .steps-grid, .flow-grid, .org-grid, .journey"
   ));
 
   carouselTracks.forEach(function (track) {
