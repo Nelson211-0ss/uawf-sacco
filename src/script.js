@@ -651,7 +651,7 @@
     calcSavings();
   }
 
-  /* ---- Footer: year and live "open now" status (Mbarara time, EAT) ---- */
+  /* ---- Footer: year and live "open now" status (Uganda time, EAT) ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
